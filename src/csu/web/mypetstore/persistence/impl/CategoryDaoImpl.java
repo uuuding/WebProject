@@ -48,7 +48,7 @@ public class CategoryDaoImpl implements CategoryDao {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_CATEGORY);
             preparedStatement.setString(1, categoryId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet!=null) {
+            if(resultSet.next()) {
                 category = ResultToCategory(resultSet);
             }
             DBUtil.closeResultSet(resultSet);
@@ -63,7 +63,7 @@ public class CategoryDaoImpl implements CategoryDao {
     private Category ResultToCategory(ResultSet resultSet) {
         Category category = new Category();
         try {
-            category.setName(resultSet.getString("name"));
+            category.setName(resultSet.getString("NAME"));
             category.setCategoryId(resultSet.getString("categoryId"));
             category.setDescription(resultSet.getString("description"));
         }catch (Exception e) {

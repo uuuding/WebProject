@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface ItemDao {
-    public void updateInventoryQuantity(Map<String, Object> var1);
+    public void updateInventoryQuantity(Map<String, Object> param);
 
-    public int getInventoryQuantity(String var1);
+    public int getInventoryQuantity(String itemId);
 
-    public List<Item> getItemListByProduct(String var1);
+    public List<Item> getItemListByProduct(String productId);
 
-    public Item getItem(String var1);
+    public Item getItem(String itemId);
 }

@@ -64,7 +64,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> searchProduct(String keywords) {
+    public List<Product> searchProductList(String keywords) {
         List<Product> productList = new ArrayList<>();
         try {
             Connection connection = DBUtil.getConnection();

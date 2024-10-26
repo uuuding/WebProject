@@ -9,5 +9,5 @@ public interface ProductDao {
 
     public Product getProduct(String productId);
 
-    public List<Product> searchProduct(String keywords);
+    public List<Product> searchProductList(String keywords);
 }
