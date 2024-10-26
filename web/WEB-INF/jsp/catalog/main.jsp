@@ -36,7 +36,7 @@
                 <area alt="Birds" coords="280,180,350,250"
                       href="" shape="RECT" />
             </map>
-            <img height="355" src="../images/splash.gif" align="middle"
+            <img height="355" src="images/splash.gif" align="middle"
                  usemap="#estoremap" width="350" /></div>
     </div>
 
