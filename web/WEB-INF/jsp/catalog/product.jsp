@@ -27,7 +27,12 @@
                 <td><fmt:formatNumber value="${item.listPrice}"
                                       pattern="$#,##0.00" /></td>
                 <td>
-                    <a href="addItemToCart?workingItemId=${item.itemId}" class="Button">Add to Cart</a>
+<%--                    用post请求来解决刷新页面时重复add的bug--%>
+                    <form action="addItemToCart" method="post">
+                        <input type="hidden" name="workingItemId" value="${item.itemId}">
+                        <input type="submit" class="Button" value="Add to Cart">
+                    </form>
+<%--                    <a href="addItemToCart?workingItemId=${item.itemId}" class="Button">Add to Cart</a>--%>
                 </td>
             </tr>
         </c:forEach>

@@ -14,9 +14,10 @@ import java.io.IOException;
 public class AddItemToCartServlet extends HttpServlet {
 
     private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
+    private static final String VIEW_CART = "cartForm";
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String workingItemId = req.getParameter("workingItemId");
 
         HttpSession session = req.getSession();
@@ -35,7 +36,10 @@ public class AddItemToCartServlet extends HttpServlet {
         }
 
         session.setAttribute("cart", cart);
-        req.getRequestDispatcher(CART_FORM).forward(req, resp);
+
+        //避免重复提交表单
+        resp.sendRedirect(VIEW_CART);
 
     }
+
 }

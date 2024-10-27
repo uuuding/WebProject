@@ -70,13 +70,13 @@ public class Cart implements Serializable {
     public BigDecimal getSubTotal() {
         BigDecimal subTotal = new BigDecimal("0");
 
-        BigDecimal listPrice;
-        BigDecimal quantity;
-        for (Iterator<CartItem> items = this.getAllCartItems(); items.hasNext(); subTotal = subTotal.add(listPrice.multiply(quantity))) {
+        Iterator<CartItem> items = getAllCartItems();
+        while (items.hasNext()) {
             CartItem cartItem = (CartItem) items.next();
             Item item = cartItem.getItem();
-            listPrice = item.getListPrice();
-            quantity = new BigDecimal(String.valueOf(cartItem.getQuantity()));
+            BigDecimal listPrice=item.getListPrice();
+            BigDecimal quantity=new BigDecimal(String.valueOf(cartItem.getQuantity()));
+            subTotal=subTotal.add(quantity.multiply(listPrice));
         }
 
         return subTotal;

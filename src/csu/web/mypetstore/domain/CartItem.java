@@ -38,6 +38,7 @@ public class CartItem implements Serializable {
         return this.quantity;
     }
 
+    //设置数量时同时计算单个商品总价
     public void setQuantity(int quantity) {
         this.quantity = quantity;
         this.calculateTotal();

@@ -52,8 +52,8 @@
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td colspan="7">Sub Total: <%--<fmt:formatNumber
-                            value="${sessionScope.cart.subTotal}" pattern="$#,##0.00"/>--%>
+                    <td colspan="7">Sub Total: <fmt:formatNumber
+                            value="${sessionScope.cart.subTotal}" pattern="$#,##0.00"/>
                         <input type="submit" value="Update Cart">
                     </td>
                     <td>&nbsp;</td>

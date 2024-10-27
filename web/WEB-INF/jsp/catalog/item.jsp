@@ -42,7 +42,11 @@
 
         <tr>
             <td>
-                <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>
+                <form action="addItemToCart" method="post">
+                    <input type="hidden" name="workingItemId" value="${item.itemId}">
+                    <input type="submit" class="Button" value="Add to Cart">
+                </form>
+<%--                <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>--%>
             </td>
         </tr>
     </table>
