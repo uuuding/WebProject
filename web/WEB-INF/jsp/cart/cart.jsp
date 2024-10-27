@@ -72,10 +72,10 @@
     	  <c:if test="${!empty sessionScope.loginAccount.listOption}">
     	    <%@ include file="includeMyList.jsp"%>
           </c:if>
-    	</c:if>
       </c:if>
+    </div>
 
     <div id="Separator">&nbsp;</div>
-</div>
+</div
 
 <%@ include file="../common/bottom.jsp" %>
