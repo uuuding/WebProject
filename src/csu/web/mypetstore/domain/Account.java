@@ -1,7 +1,7 @@
 package csu.web.mypetstore.domain;
 
 import java.io.Serializable;
-import net.sourceforge.stripes.validation.Validate;
+//import net.sourceforge.stripes.validation.Validate;
 
 public class Account implements Serializable {
     private static final long serialVersionUID = 8751282105532159742L;
@@ -56,22 +56,22 @@ public class Account implements Serializable {
         return this.firstName;
     }
 
-    @Validate(
-            required = true,
-            on = {"newAccount", "editAccount"}
-    )
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    @Validate(
-            required = true,
-            on = {"newAccount", "editAccount"}
-    )
+//    @Validate(
+//            required = true,
+//            on = {"newAccount", "editAccount"}
+//    )
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getLastName() {
+//        return this.lastName;
+//    }
+//
+//    @Validate(
+//            required = true,
+//            on = {"newAccount", "editAccount"}
+//    )
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
