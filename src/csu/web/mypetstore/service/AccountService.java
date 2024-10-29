@@ -8,7 +8,7 @@ public class AccountService {
     private AccountDao accountDao;
 
     public AccountService(){
-        accountDao = new AccountDaoImpl();
+        this.accountDao = new AccountDaoImpl();
     }
 
     public Account getAccount(String username, String password) {
