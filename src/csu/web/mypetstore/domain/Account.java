@@ -60,13 +60,13 @@ public class Account implements Serializable {
 //            required = true,
 //            on = {"newAccount", "editAccount"}
 //    )
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return this.lastName;
-//    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
 //
 //    @Validate(
 //            required = true,
