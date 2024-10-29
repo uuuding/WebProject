@@ -26,7 +26,23 @@ public class AccountDaoImpl implements AccountDao {
             "AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
 
     private Account resultSetToAccount(ResultSet resultSet)throws Exception{
-        return null;
+        Account account = new Account();
+        account.setUsername(resultSet.getString("USERNAME"));
+        account.setEmail(resultSet.getString("EMAIL"));
+        account.setFirstName(resultSet.getString("FIRSTNAME"));
+        account.setLastName(resultSet.getString("LASTNAME"));
+        account.setStatus(resultSet.getString("STATUS"));
+        account.setAddress1(resultSet.getString("address1"));
+        account.setAddress2(resultSet.getString("address2"));
+        account.setCity(resultSet.getString("CITY"));
+        account.setState(resultSet.getString("STATE"));
+        account.setZip(resultSet.getString("ZIP"));
+        account.setCountry(resultSet.getString("COUNTRY"));
+        account.setPhone(resultSet.getString("PHONE"));
+        account.setLanguagePreference(resultSet.getString("languagePreference"));
+        account.setFavouriteCategoryId(resultSet.getString("favouriteCategoryId"));
+        account.setListOption(resultSet.getBoolean("listOption"));
+        return account;
     };
 
 
