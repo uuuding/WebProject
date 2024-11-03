@@ -42,6 +42,7 @@ public class AccountDaoImpl implements AccountDao {
         account.setLanguagePreference(resultSet.getString("languagePreference"));
         account.setFavouriteCategoryId(resultSet.getString("favouriteCategoryId"));
         account.setListOption(resultSet.getBoolean("listOption"));
+        System.out.println("success");
         return account;
     };
 
@@ -60,6 +61,7 @@ public class AccountDaoImpl implements AccountDao {
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()){
                 accountResult = this.resultSetToAccount(resultSet);
             }
@@ -76,16 +78,82 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public void insertAccount(Account account) {
 
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // 获取数据库连接
+            connection = DBUtil.getConnection();
+
+            // 插入账户信息
+            String insertAccountSQL = "INSERT INTO ACCOUNT (USERID, EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY, PHONE) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(insertAccountSQL);
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, account.getEmail());
+            preparedStatement.setString(3, account.getFirstName());
+            preparedStatement.setString(4, account.getLastName());
+            preparedStatement.setString(5, account.getStatus());
+            preparedStatement.setString(6, account.getAddress1());
+            preparedStatement.setString(7, account.getAddress2());
+            preparedStatement.setString(8, account.getCity());
+            preparedStatement.setString(9, account.getState());
+            preparedStatement.setString(10, account.getZip());
+            preparedStatement.setString(11, account.getCountry());
+            preparedStatement.setString(12, account.getPhone());
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+
     }
 
     @Override
     public void insertProfile(Account account) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = DBUtil.getConnection();
+            String insertProfileSQL = "INSERT INTO PROFILE (USERID, LANGPREF, FAVCATEGORY, MYLISTOPT, BANNEROPT) VALUES (?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(insertProfileSQL);
 
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, account.getLanguagePreference());
+            preparedStatement.setString(3, account.getFavouriteCategoryId());
+            preparedStatement.setBoolean(4, account.getListOption());
+            preparedStatement.setBoolean(5, account.getBannerOption());
+
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
     }
 
     @Override
     public void insertSignon(Account account) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = DBUtil.getConnection();
+            String insertSignonSQL = "INSERT INTO SIGNON (USERNAME, PASSWORD) VALUES (?, ?)";
+            preparedStatement = connection.prepareStatement(insertSignonSQL);
 
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, account.getPassword());
+
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
     }
 
     @Override

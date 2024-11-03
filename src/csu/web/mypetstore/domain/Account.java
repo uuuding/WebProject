@@ -179,4 +179,21 @@ public class Account implements Serializable {
     public void setBannerName(String bannerName) {
         this.bannerName = bannerName;
     }
+
+
+    public boolean getListOption() {
+        return this.listOption;
+    }
+
+    public boolean getBannerOption() {
+        return this.bannerOption;
+    }
+
+    public void setAddr1(String address1) {
+        this.address1 = address1;
+    }
+
+    public void setAddr2(String address2) {
+        this.address2 = address2;
+    }
 }

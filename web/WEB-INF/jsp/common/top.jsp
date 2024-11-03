@@ -30,7 +30,7 @@
             </c:if>
 
             <c:if test="${sessionScope.loginAccount != null}">
-                <a href="#">Sign Out</a>
+                <a href="signOut">Sign Out</a>
                 <img align="middle" src="images/separator.gif"/>
                 <a href="#">My Account</a>
                 <img align="middle" src="images/separator.gif"/>
