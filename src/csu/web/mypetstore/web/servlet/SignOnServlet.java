@@ -30,31 +30,33 @@ public class SignOnServlet extends HttpServlet {
         this.password = req.getParameter("password");
 
         //检验用户输入
-        if(!validate()){
+        if (!validate()) {
             //失败回跳
-            req.setAttribute("signOnMsg",this.msg);
-            req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
-        }else {
+            req.setAttribute("signOnMsg", this.msg);
+            req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+        } else {
             AccountService accountService = new AccountService();
             Account loginAccount = accountService.getAccount(username, password);
-            if(loginAccount == null){
+            if (loginAccount == null) {
                 this.msg = "用户名或密码错误";
                 System.out.println("11111");
-                req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
-            }else {
+                req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+            } else {
                 //loginAccount.setPassword(null);
                 HttpSession session = req.getSession();
                 session.setAttribute("loginAccount", loginAccount);
 
-                if(loginAccount.isListOption()){
+                if (loginAccount.isListOption()) {
                     CatalogService catalogService = new CatalogService();
                     List<Product> myList = catalogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                     session.setAttribute("myList", myList);
                 }
                 //加载用户购物车信息
                 CartService cartService = new CartService();
-                Cart cart =cartService.getCartByUserId(username);
-                session.setAttribute("cart", cart);
+                Cart cart = cartService.getCartByUserId(username);
+                if (cart != null) {
+                    session.setAttribute("cart", cart);
+                }
 
                 resp.sendRedirect("mainForm");
 
@@ -65,12 +67,12 @@ public class SignOnServlet extends HttpServlet {
 
     }
 
-    private boolean validate(){
-        if(this.username == null || this.username.equals("")){
+    private boolean validate() {
+        if (this.username == null || this.username.equals("")) {
             this.msg = "用户名不能空";
             return false;
         }
-        if(this.password == null || this.password.equals("")){
+        if (this.password == null || this.password.equals("")) {
             this.msg = "密码不能空";
             return false;
         }

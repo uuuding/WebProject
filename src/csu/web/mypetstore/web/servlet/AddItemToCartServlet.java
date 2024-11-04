@@ -26,7 +26,10 @@ public class AddItemToCartServlet extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
         //获取用户名
         Account account = (Account) session.getAttribute("loginAccount");
-        String username = account.getUsername();
+        String username = null;
+        if(account != null) {
+            username = account.getUsername();
+        }
 
         if (cart == null) {
             cart = new Cart();
@@ -38,11 +41,11 @@ public class AddItemToCartServlet extends HttpServlet {
         // 检查商品是否已经在购物车中
         if (cart.getItemMap().containsKey(workingItemId)) {
             CartItem cartItem = cart.getItemMap().get(workingItemId);
-            cartService.updateItemQuantity(username, cart, workingItemId, cartItem.getQuantity() + 1); // 假设userId为0
+            cartService.updateItemQuantity(username, cart, workingItemId, cartItem.getQuantity() + 1);
         } else {
             Item item = catalogService.getItem(workingItemId);
             boolean isInStock = catalogService.isItemInStock(workingItemId);
-            cartService.addItemToCart(username, cart, item, isInStock); // 假设userId为0
+            cartService.addItemToCart(username, cart, item, isInStock);
         }
 
 
