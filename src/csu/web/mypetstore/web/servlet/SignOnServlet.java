@@ -45,6 +45,7 @@ public class SignOnServlet extends HttpServlet {
                 //loginAccount.setPassword(null);
                 HttpSession session = req.getSession();
                 session.setAttribute("loginAccount", loginAccount);
+                session.setAttribute("userName", username);
 
                 if (loginAccount.isListOption()) {
                     CatalogService catalogService = new CatalogService();

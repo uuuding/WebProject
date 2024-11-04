@@ -23,6 +23,7 @@ public class AddItemToCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String workingItemId = req.getParameter("workingItemId");
         HttpSession session = req.getSession();
+        session.setAttribute("itemId", workingItemId);
         Cart cart = (Cart) session.getAttribute("cart");
         //获取用户名
         Account account = (Account) session.getAttribute("loginAccount");
