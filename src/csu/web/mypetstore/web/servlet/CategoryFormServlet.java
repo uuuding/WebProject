@@ -18,13 +18,16 @@ public class CategoryFormServlet extends HttpServlet {
     private static final String CATEGORY_FORM = "/WEB-INF/jsp/catalog/category.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String categoryId =req.getParameter("categoryId");
+        String categoryId = req.getParameter("categoryId");
+        String username = req.getParameter("userName");
         catalogService = new CatalogService();
         Category category = catalogService.getCategory(categoryId);
         List<Product> productList = catalogService.getProductListByCategory(categoryId);
         HttpSession session = req.getSession();
         session.setAttribute("category", category);
         session.setAttribute("productList", productList);
-        req.getRequestDispatcher(CATEGORY_FORM).forward(req,resp);
+        session.setAttribute("categoryId", categoryId);
+        session.setAttribute("userName", username);
+        req.getRequestDispatcher(CATEGORY_FORM).forward(req, resp);
     }
 }

@@ -19,12 +19,15 @@ public class ProductFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productId = req.getParameter("productId");
+        String username = req.getParameter("userName");
         catalogService = new CatalogService();
         Product product = catalogService.getProduct(productId);
         List<Item> itemList =  catalogService.getItemListByProduct(productId);
         HttpSession session = req.getSession();
         session.setAttribute("product", product);
         session.setAttribute("itemList", itemList);
+        session.setAttribute("productId", productId);
+        session.setAttribute("userName", username);
         req.getRequestDispatcher(PRODUCT_FORM).forward(req, resp);
     }
 }
