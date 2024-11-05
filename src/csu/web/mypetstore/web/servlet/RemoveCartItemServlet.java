@@ -33,6 +33,7 @@ public class RemoveCartItemServlet extends HttpServlet {
             session.setAttribute("errorMsg", "Attempted to remove null CartItem from Cart.");
             req.getRequestDispatcher(ERROR_FORM).forward(req, resp);
         } else {
+            session.setAttribute("cart",cart);
             req.getRequestDispatcher(CART_FORM).forward(req, resp);
         }
     }
