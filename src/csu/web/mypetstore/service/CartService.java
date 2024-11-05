@@ -80,4 +80,8 @@ public class CartService {
         }
         cart.setSubTotal(subTotal);
     }
+
+    public void updateItemByItemIdAndPay(String username, String itemId, boolean pay){
+        cartDao.updateItemByItemIdAndPay(username,itemId,pay);
+    }
 }

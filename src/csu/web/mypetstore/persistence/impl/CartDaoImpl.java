@@ -23,6 +23,7 @@ public class CartDaoImpl implements CartDao {
             "DELETE FROM cartitem WHERE username = ? AND itemid = ?";
     private static final String GET_CART_ITEMS_BY_USER_ID =
             "SELECT itemid, quantity, in_stock FROM cartitem WHERE username = ?";
+    private final static String UPDATE_ITEM_ByY_ITEMID_AND_PAYSQL = "update cart set pay = ? where username = ? and itemId = ?";
 
     @Override
     public void insertCartItem(String username, CartItem cartItem) {
@@ -92,5 +93,21 @@ public class CartDaoImpl implements CartDao {
             e.printStackTrace();
         }
         return cartItems;
+    }
+
+    public void updateItemByItemIdAndPay(String username, String itemId, boolean pay){
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ITEM_ByY_ITEMID_AND_PAYSQL);
+            preparedStatement.setBoolean(1,pay);
+            preparedStatement.setString(2,username);
+            preparedStatement.setString(3,itemId);
+            int result = preparedStatement.executeUpdate();
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

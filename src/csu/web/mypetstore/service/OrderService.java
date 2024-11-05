@@ -9,6 +9,10 @@ import csu.web.mypetstore.persistence.SequenceDao;
 
 import csu.web.mypetstore.domain.LineItem;
 import csu.web.mypetstore.domain.Order;
+import csu.web.mypetstore.persistence.impl.ItemDaoImpl;
+import csu.web.mypetstore.persistence.impl.LineItemDaoImpl;
+import csu.web.mypetstore.persistence.impl.OrderDaoImpl;
+import csu.web.mypetstore.persistence.impl.SequenceDaoImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,13 +21,13 @@ import java.util.Map;
 public class OrderService {
 
 
-    private ItemDao itemDao;
+    private ItemDao itemDao = new ItemDaoImpl();
 
-    private OrderDao orderDao;
+    private OrderDao orderDao = new OrderDaoImpl();
 
-    private SequenceDao sequenceDao;
+    private SequenceDao sequenceDao = new SequenceDaoImpl();
 
-    private LineItemDao lineItemDao;
+    private LineItemDao lineItemDao = new LineItemDaoImpl();
 
 
     public void insertOrder(Order order) {
@@ -68,7 +72,7 @@ public class OrderService {
 
     public int getNextId(String name) {
         Sequence sequence = new Sequence(name, -1);
-        sequence = (Sequence) sequenceDao.getSequence(sequence);
+        sequence = sequenceDao.getSequence(sequence);
         if (sequence == null) {
             throw new RuntimeException("Error: A null sequence was returned from the database (could not get next " + name
                     + " sequence).");

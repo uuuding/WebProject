@@ -10,8 +10,8 @@ public interface OrderDao {
 
     Order getOrder(int orderId);
 
-    void insertOrder(Order order);
+    boolean insertOrder(Order order);
 
-    void insertOrderStatus(Order order);
+    boolean insertOrderStatus(Order order);
 
 }
