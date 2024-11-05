@@ -1,4 +1,5 @@
 package csu.web.mypetstore.persistence.impl;
 
-public class SequenceDaoImp {
+public class OrderDaoImpl {
+
 }
