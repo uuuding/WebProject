@@ -1,4 +1,4 @@
-package csu.web.mypetstore.filter;
+/*package csu.web.mypetstore.filter;
 
 import csu.web.mypetstore.persistence.DBUtil;
 
@@ -86,4 +86,4 @@ public class LoggingFilter implements Filter {
     public void destroy() {
         logger.info("LoggingFilter destroyed");
     }
-}
+}*/

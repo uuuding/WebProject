@@ -19,13 +19,21 @@ public class SignOnServlet extends HttpServlet {
 
     private String username;
     private String password;
+    private String captcha;
+    private String gotCaptcha;
+
 
     private String msg;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        HttpSession session = req.getSession();
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
+        this.captcha = (String) session.getAttribute("captcha");
+        this.gotCaptcha = req.getParameter("captcha");
+
 
         //检验用户输入
         if(!validate()){
@@ -41,7 +49,7 @@ public class SignOnServlet extends HttpServlet {
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
                 //loginAccount.setPassword(null);
-                HttpSession session = req.getSession();
+
                 session.setAttribute("loginAccount", loginAccount);
 
                 if(loginAccount.isListOption()){
@@ -59,12 +67,18 @@ public class SignOnServlet extends HttpServlet {
     }
 
     private boolean validate(){
+        System.out.println(captcha);
+        System.out.println(gotCaptcha);
         if(this.username == null || this.username.equals("")){
             this.msg = "用户名不能空";
             return false;
         }
         if(this.password == null || this.password.equals("")){
             this.msg = "密码不能空";
+            return false;
+        }
+        if(this.gotCaptcha == null || !(this.gotCaptcha.equalsIgnoreCase(this.captcha))){
+            this.msg = "验证码错误";
             return false;
         }
         return true;
