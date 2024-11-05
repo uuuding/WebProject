@@ -61,14 +61,27 @@
                 <td><label for="phone">Phone:</label></td>
                 <td><input type="tel" id="phone" name="phone"></td>
             </tr>
-            <tr>
-                <td><label for="favouriteCategoryId">Favourite Category ID:</label></td>
-                <td><input type="text" id="favouriteCategoryId" name="favouriteCategoryId"></td>
-            </tr>
-            <tr>
-                <td><label for="languagePreference">Language Preference:</label></td>
-                <td><input type="text" id="languagePreference" name="languagePreference"></td>
-            </tr>
+                <tr>
+                    <td>Language Preference:</td>
+                    <td>
+                        <select name="languagePreference">
+                            <option value="english" ${loginAccount.languagePreference == 'english' ? 'selected="selected"' : ''}>english</option>
+                            <option value="japanese" ${loginAccount.languagePreference == 'japanese' ? 'selected="selected"' : ''}>japanese</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Favourite Category:</td>
+                    <td>
+                        <select name="favouriteCategoryId">
+                            <option value="FISH" ${loginAccount.favouriteCategoryId == 'FISH' ? 'selected="selected"' : ''}>FISH</option>
+                            <option value="DOGS" ${loginAccount.favouriteCategoryId == 'DOGS' ? 'selected="selected"' : ''}>DOGS</option>
+                            <option value="REPTILES" ${loginAccount.favouriteCategoryId == 'REPTILES' ? 'selected="selected"' : ''}>REPTILES</option>
+                            <option value="CATS" ${loginAccount.favouriteCategoryId == 'CATS' ? 'selected="selected"' : ''}>CATS</option>
+                            <option value="BIRDS" ${loginAccount.favouriteCategoryId == 'BIRDS' ? 'selected="selected"' : ''}>BIRDS</option>
+                        </select>
+                    </td>
+                </tr>
             <tr>
                 <td><label for="listOption">Mailing List Option:</label></td>
                 <td><input type="checkbox" id="listOption" name="listOption"></td>
