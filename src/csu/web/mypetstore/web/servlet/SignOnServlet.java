@@ -1,8 +1,10 @@
 package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.AccountService;
+import csu.web.mypetstore.service.CartService;
 import csu.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -36,27 +38,35 @@ public class SignOnServlet extends HttpServlet {
 
 
         //检验用户输入
-        if(!validate()){
+        if (!validate()) {
             //失败回跳
-            req.setAttribute("signOnMsg",this.msg);
-            req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
-        }else {
+            req.setAttribute("signOnMsg", this.msg);
+            req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+        } else {
             AccountService accountService = new AccountService();
             Account loginAccount = accountService.getAccount(username, password);
-            if(loginAccount == null){
+            if (loginAccount == null) {
                 this.msg = "用户名或密码错误";
                 System.out.println("11111");
-                req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
-            }else {
+                req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+            } else {
                 //loginAccount.setPassword(null);
 
                 session.setAttribute("loginAccount", loginAccount);
+                session.setAttribute("userName", username);
 
-                if(loginAccount.isListOption()){
+                if (loginAccount.isListOption()) {
                     CatalogService catalogService = new CatalogService();
                     List<Product> myList = catalogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                     session.setAttribute("myList", myList);
                 }
+                //加载用户购物车信息
+                CartService cartService = new CartService();
+                Cart cart = cartService.getCartByUserId(username);
+                if (cart != null) {
+                    session.setAttribute("cart", cart);
+                }
+
                 resp.sendRedirect("mainForm");
 
             }

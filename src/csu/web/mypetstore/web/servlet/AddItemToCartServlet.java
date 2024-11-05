@@ -1,7 +1,10 @@
 package csu.web.mypetstore.web.servlet;
 
+import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
+import csu.web.mypetstore.domain.CartItem;
 import csu.web.mypetstore.domain.Item;
+import csu.web.mypetstore.service.CartService;
 import csu.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -19,27 +22,36 @@ public class AddItemToCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String workingItemId = req.getParameter("workingItemId");
-
         HttpSession session = req.getSession();
+        session.setAttribute("itemId", workingItemId);
         Cart cart = (Cart) session.getAttribute("cart");
+        //获取用户名
+        Account account = (Account) session.getAttribute("loginAccount");
+        String username = null;
+        if(account != null) {
+            username = account.getUsername();
+        }
+
         if (cart == null) {
             cart = new Cart();
+            session.setAttribute("cart", cart);
         }
 
-        if (cart.containsItemId(workingItemId)) {
-            cart.incrementQuantityByItemId(workingItemId);
+        CartService cartService = new CartService();
+        CatalogService catalogService = new CatalogService();
+        // 检查商品是否已经在购物车中
+        if (cart.getItemMap().containsKey(workingItemId)) {
+            CartItem cartItem = cart.getItemMap().get(workingItemId);
+            cartService.updateItemQuantity(username, cart, workingItemId, cartItem.getQuantity() + 1);
         } else {
-            CatalogService catalogService = new CatalogService();
-            boolean isInStock = catalogService.isItemInStock(workingItemId);
             Item item = catalogService.getItem(workingItemId);
-            cart.addItem(item, isInStock);
+            boolean isInStock = catalogService.isItemInStock(workingItemId);
+            cartService.addItemToCart(username, cart, item, isInStock);
         }
+
 
         session.setAttribute("cart", cart);
-
-        //避免重复提交表单
+        // 避免重复提交表单
         resp.sendRedirect(VIEW_CART);
-
     }
-
 }

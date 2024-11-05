@@ -10,11 +10,26 @@ public class CartItem implements Serializable {
     private boolean inStock;
     private BigDecimal total;
 
-    public CartItem() {
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+        calculateTotal();
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+        calculateTotal();
     }
 
     public boolean isInStock() {
-        return this.inStock;
+        return inStock;
     }
 
     public void setInStock(boolean inStock) {
@@ -22,39 +37,14 @@ public class CartItem implements Serializable {
     }
 
     public BigDecimal getTotal() {
-        return this.total;
-    }
-
-    public Item getItem() {
-        return this.item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-        this.calculateTotal();
-    }
-
-    public int getQuantity() {
-        return this.quantity;
-    }
-
-    //设置数量时同时计算单个商品总价
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-        this.calculateTotal();
-    }
-
-    public void incrementQuantity() {
-        ++this.quantity;
-        this.calculateTotal();
+        return total;
     }
 
     private void calculateTotal() {
-        if (this.item != null && this.item.getListPrice() != null) {
-            this.total = this.item.getListPrice().multiply(new BigDecimal(this.quantity));
+        if (item != null && item.getListPrice() != null) {
+            this.total = item.getListPrice().multiply(BigDecimal.valueOf(quantity));
         } else {
-            this.total = null;
+            this.total = BigDecimal.ZERO;
         }
-
     }
 }

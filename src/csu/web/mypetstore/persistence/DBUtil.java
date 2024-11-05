@@ -9,6 +9,14 @@ public class DBUtil {
     private static String USERNAME = "root";
     private static String PASSWORD = "zzm503503";
 
+    private static String CREATE_LOG_TABEL = "CREATE TABLE IF NOT EXISTS user_logs (" +
+            "id INT AUTO_INCREMENT PRIMARY KEY, " +
+            "user_name VARCHAR(255) NOT NULL, " +
+            "action_type VARCHAR(255) NOT NULL, " +
+            "action_details VARCHAR(225), " +
+            "request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+            ");";
+
     public static Connection getConnection() {
         Connection connection = null;
         try {
@@ -53,7 +61,14 @@ public class DBUtil {
         }
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(getConnection());
-//    }
+    public static void creatLogTable() {
+        try {
+            Connection connection = getConnection();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(CREATE_LOG_TABEL);
+            System.out.println("Table 'user_logs is ready" );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
