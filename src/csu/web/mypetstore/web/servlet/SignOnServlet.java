@@ -48,6 +48,7 @@ public class SignOnServlet extends HttpServlet {
             if (loginAccount == null) {
                 this.msg = "用户名或密码错误";
                 System.out.println("11111");
+                req.setAttribute("signOnMsg", this.msg);
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
             } else {
                 //loginAccount.setPassword(null);

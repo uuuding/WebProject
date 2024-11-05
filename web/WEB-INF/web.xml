@@ -51,6 +51,14 @@
         <servlet-name>SignOnServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.SignOnServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.EditAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAccountFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.EditAccountFormServlet</servlet-class>
+    </servlet>
 
 
 
@@ -98,6 +106,14 @@
     <servlet-mapping>
         <servlet-name>SignOnServlet</servlet-name>
         <url-pattern>/signOn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <url-pattern>/editAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountFormServlet</servlet-name>
+        <url-pattern>/editAccountForm</url-pattern>
     </servlet-mapping>
 
 </web-app>

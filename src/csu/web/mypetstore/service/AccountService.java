@@ -49,4 +49,12 @@ public class AccountService {
         accountDao.insertSignon(account);
         accountDao.insertProfile(account);
     }
+
+    public void updateAccount(Account account) {
+        this.accountDao.updateAccount(account);
+        this.accountDao.updateProfile(account);
+        if (account.getPassword() != null && account.getPassword().length() > 0) {
+            this.accountDao.updateSignon(account);
+        }
+    }
 }

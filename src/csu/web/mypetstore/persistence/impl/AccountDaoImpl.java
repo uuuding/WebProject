@@ -18,7 +18,7 @@ public class AccountDaoImpl implements AccountDao {
             "ACCOUNT.CITY,ACCOUNT.STATE,ACCOUNT.ZIP,ACCOUNT.COUNTRY,ACCOUNT.PHONE," +
             "PROFILE.LANGPREF AS languagePreference,PROFILE.FAVCATEGORY AS favouriteCategoryId," +
             "PROFILE.MYLISTOPT AS listOption,PROFILE.BANNEROPT AS bannerOption," +
-            "BANNERDATA.BANNERNAME " +
+            "BANNERDATA.BANNERNAME AS bannerName " +
             "FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA " +
             "WHERE ACCOUNT.USERID = ? AND SIGNON.PASSWORD = ? " +
             "AND SIGNON.USERNAME = ACCOUNT.USERID " +
@@ -42,15 +42,11 @@ public class AccountDaoImpl implements AccountDao {
         account.setLanguagePreference(resultSet.getString("languagePreference"));
         account.setFavouriteCategoryId(resultSet.getString("favouriteCategoryId"));
         account.setListOption(resultSet.getBoolean("listOption"));
+        account.setBannerOption(resultSet.getBoolean("bannerOption"));
+        account.setBannerName(resultSet.getString("bannerName"));
         System.out.println("success");
         return account;
     };
-
-
-    @Override
-    public Account getAccountByUsername(String username) {
-        return null;
-    }
 
     @Override
     public Account getAccountByUsernameAndPassword(Account account) {
@@ -158,18 +154,103 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void updateAccount(Account account) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // 获取数据库连接
+            connection = DBUtil.getConnection();
 
+            // SQL 更新语句
+            String updateAccountSQL = "UPDATE ACCOUNT SET " +
+                    "EMAIL = ?, FIRSTNAME = ?, LASTNAME = ?, STATUS = ?, " +
+                    "ADDR1 = ?, ADDR2 = ?, CITY = ?, STATE = ?, ZIP = ?, COUNTRY = ?, PHONE = ? " +
+                    "WHERE USERID = ?";
+
+            preparedStatement = connection.prepareStatement(updateAccountSQL);
+
+            // 设置参数
+            preparedStatement.setString(1, account.getEmail());
+            preparedStatement.setString(2, account.getFirstName());
+            preparedStatement.setString(3, account.getLastName());
+            preparedStatement.setString(4, account.getStatus());
+            preparedStatement.setString(5, account.getAddress1());
+            preparedStatement.setString(6, account.getAddress2());
+            preparedStatement.setString(7, account.getCity());
+            preparedStatement.setString(8, account.getState());
+            preparedStatement.setString(9, account.getZip());
+            preparedStatement.setString(10, account.getCountry());
+            preparedStatement.setString(11, account.getPhone());
+            preparedStatement.setString(12, account.getUsername());
+
+            // 执行更新
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
     }
 
     @Override
     public void updateProfile(Account account) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // 获取数据库连接
+            connection = DBUtil.getConnection();
 
+            // SQL 更新语句
+            String updateProfileSQL = "UPDATE PROFILE SET " +
+                    "LANGPREF = ?, FAVCATEGORY = ?, MYLISTOPT = ?, BANNEROPT = ? " +
+                    "WHERE USERID = ?";
+
+            preparedStatement = connection.prepareStatement(updateProfileSQL);
+
+            // 设置参数
+            preparedStatement.setString(1, account.getLanguagePreference());
+            preparedStatement.setString(2, account.getFavouriteCategoryId());
+            preparedStatement.setBoolean(3, account.getListOption());
+            preparedStatement.setBoolean(4, account.getBannerOption());
+            preparedStatement.setString(5, account.getUsername());
+
+            // 执行更新
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
     }
 
     @Override
     public void updateSignon(Account account) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // 获取数据库连接
+            connection = DBUtil.getConnection();
 
+            // SQL 更新语句
+            String updateSignonSQL = "UPDATE SIGNON SET PASSWORD = ? WHERE USERNAME = ?";
+
+            preparedStatement = connection.prepareStatement(updateSignonSQL);
+
+            // 设置参数
+            preparedStatement.setString(1, account.getPassword());
+            preparedStatement.setString(2, account.getUsername());
+
+            // 执行更新
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
     }
+
 
    /* public static void main(String[] args){
 
