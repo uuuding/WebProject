@@ -75,6 +75,11 @@
         <servlet-name>ViewOrderServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ViewOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.LogFormServlet</servlet-class>
+    </servlet>
+
 
 
 
@@ -146,6 +151,10 @@
     <servlet-mapping>
         <servlet-name>ViewOrderServlet</servlet-name>
         <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogFormServlet</servlet-name>
+        <url-pattern>/logForm</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -14,6 +14,7 @@ public class AppInitializer implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Application starting.... checking database tables");
         DBUtil.creatLogTable();
+        DBUtil.creatCartItemTable();
     }
 
     @Override
