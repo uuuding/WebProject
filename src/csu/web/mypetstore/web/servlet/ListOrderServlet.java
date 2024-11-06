@@ -23,7 +23,7 @@ public class ListOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Account account = (Account) session.getAttribute("account");
+        Account account = (Account) session.getAttribute("loginAccount");
 
         // 检查用户是否已登录
         if (account != null) {
