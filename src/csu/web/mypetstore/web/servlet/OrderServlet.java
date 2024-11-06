@@ -32,19 +32,11 @@ public class OrderServlet extends HttpServlet {
         orderService.insertOrder(order);
 
         // 重置购物车
+        Cart cart = new Cart();
+        session.setAttribute("cart", cart);
         CartService cartService = new CartService();
-        Account user = (Account) session.getAttribute("loginAccount");
-        String username = user.getUsername();
-        Cart cart = (Cart) session.getAttribute("cart"); // 获取Cart对象
-        List<CartItem> cartItems = cart.getItemList(); // 获取Cart中的itemList
-
-        if (cartItems != null) {
-            for (CartItem cartItem : cartItems) {
-                cartService.updateItemByItemIdAndPay(username, cartItem.getItem().getItemId(), true);
-            }
-        }
-
-        session.removeAttribute("cart");
+        Account account = (Account) session.getAttribute("account");
+        cartService.clearCart(account.getUsername());
 
         request.getRequestDispatcher(VIEW_ORDER).forward(request, response);
     }

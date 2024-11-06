@@ -10,5 +10,5 @@ public interface CartDao {
     void deleteCartItem(String username, String itemId);
     List<CartItem> getCartItemsByUserId(String username);
 
-    void updateItemByItemIdAndPay(String username, String itemId, boolean pay);
+    void clearCart(String username);
 }
