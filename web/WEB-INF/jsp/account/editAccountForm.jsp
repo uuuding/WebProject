@@ -32,7 +32,7 @@
         <input type="submit" value="Save Account Information"/>
 
     </form>
-    <a href="listOrders">My Orders</a>
+    <a href="listOrder">My Orders</a>
 </div>
 
 <%@ include file="../common/bottom.jsp" %>

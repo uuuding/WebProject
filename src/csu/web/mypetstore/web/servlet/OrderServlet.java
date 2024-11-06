@@ -35,7 +35,7 @@ public class OrderServlet extends HttpServlet {
         Cart cart = new Cart();
         session.setAttribute("cart", cart);
         CartService cartService = new CartService();
-        Account account = (Account) session.getAttribute("account");
+        Account account = (Account) session.getAttribute("loginAccount");
         cartService.clearCart(account.getUsername());
 
         request.getRequestDispatcher(VIEW_ORDER).forward(request, response);

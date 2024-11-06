@@ -67,6 +67,14 @@
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.OrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ListOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ViewOrderServlet</servlet-class>
+    </servlet>
 
 
 
@@ -123,7 +131,6 @@
         <servlet-name>EditAccountFormServlet</servlet-name>
         <url-pattern>/editAccountForm</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ConfirmOrderServlet</servlet-name>
         <url-pattern>/confirmOrder</url-pattern>
@@ -131,6 +138,14 @@
     <servlet-mapping>
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <url-pattern>/listOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <url-pattern>/viewOrder</url-pattern>
     </servlet-mapping>
 
 </web-app>
