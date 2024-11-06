@@ -6,6 +6,7 @@ import csu.web.mypetstore.persistence.OrderDao;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -141,7 +142,7 @@ public class OrderDaoImpl implements OrderDao {
             PreparedStatement preparedStatement = connection.prepareStatement(insertOrder);
             preparedStatement.setString(1, order.getOrderId() + "");
             preparedStatement.setString(2,order.getUsername());
-            preparedStatement.setString(3,order.getOrderDate().toString());
+            preparedStatement.setDate(3,order.getOrderDate());
             preparedStatement.setString(4,order.getShipAddress1());
             preparedStatement.setString(5,order.getShipAddress2());
             preparedStatement.setString(6,order.getShipCity());

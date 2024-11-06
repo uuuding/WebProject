@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -259,7 +259,7 @@ public class Order implements Serializable {
     public void initOrder(Account account, Cart cart) {
 
         username = account.getUsername();
-        orderDate = new Date();
+        orderDate = Date.valueOf(LocalDate.now()); // 获取当前日期
 
         shipToFirstName = account.getFirstName();
         shipToLastName = account.getLastName();
@@ -304,5 +304,4 @@ public class Order implements Serializable {
     public void addLineItem(LineItem lineItem) {
         lineItems.add(lineItem);
     }
-
 }
