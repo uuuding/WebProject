@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ListOrderServlet extends HttpServlet {
 
-    private static final String LIST_ORDERS_FORM = "/WEB-INF/jsp/order/ListOrders.jsp";
+    private static final String LIST_ORDERS_FORM = "/WEB-INF/jsp/order/listOrders.jsp";
 
     private final OrderService orderService = new OrderService();
 

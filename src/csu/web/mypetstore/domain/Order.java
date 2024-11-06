@@ -2,6 +2,8 @@ package csu.web.mypetstore.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.sql.Date;
@@ -39,6 +41,8 @@ public class Order implements Serializable {
     private String locale;
     private String status;
     private List<LineItem> lineItems = new ArrayList<LineItem>();
+
+    private Timestamp timestamp;
 
     public int getOrderId() {
         return orderId;
@@ -256,6 +260,14 @@ public class Order implements Serializable {
         return lineItems;
     }
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public void initOrder(Account account, Cart cart) {
 
         username = account.getUsername();
@@ -288,6 +300,8 @@ public class Order implements Serializable {
         locale = "CA";
         status = "P";
 
+        timestamp = new Timestamp(System.currentTimeMillis());
+
         Iterator<CartItem> i = cart.getCartItems();
         while (i.hasNext()) {
             CartItem cartItem = (CartItem) i.next();
@@ -304,4 +318,6 @@ public class Order implements Serializable {
     public void addLineItem(LineItem lineItem) {
         lineItems.add(lineItem);
     }
+
 }
+
