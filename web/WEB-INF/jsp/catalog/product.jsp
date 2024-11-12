@@ -1,7 +1,7 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="BackLink">
-    <a href="categoryForm?categoryId=${sessionScope.category.categoryId}">Return to ${sessionScope.category.name}</a>>
+    <a href="categoryForm?categoryId=${sessionScope.category.categoryId}">Return to ${sessionScope.category.name}</a>
 </div>
 
 <div id="Catalog">
@@ -19,7 +19,7 @@
         <c:forEach var="item" items="${sessionScope.itemList}">
             <tr>
                 <td>
-                    <a href="itemForm?itemId=${item.itemId}">${item.itemId}</a>>
+                    <a href="itemForm?itemId=${item.itemId}">${item.itemId}</a>
                 </td>
                 <td>${item.product.productId}</td>
                 <td>${item.attribute1} ${item.attribute2} ${item.attribute3}

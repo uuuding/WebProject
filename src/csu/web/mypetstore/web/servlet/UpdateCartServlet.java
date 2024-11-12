@@ -48,10 +48,10 @@ public class UpdateCartServlet extends HttpServlet {
 
                     // 更新数量或移除商品
                     cartItem.setQuantity(quantity);
-                    cartService.updateItemQuantity(username,cart,itemId, quantity);
+                    cartService.updateItemQuantity(username, cart, itemId, quantity);
                     if (quantity < 1) {
                         cartItems.remove();
-                        cartService.removeCartItem(username,cart,itemId);
+                        cartService.removeCartItem(username, cart, itemId);
                     }
                 }
             } catch (NumberFormatException e) {
@@ -62,24 +62,5 @@ public class UpdateCartServlet extends HttpServlet {
 
         // 页面转发
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
-
-//        // 遍历购物车中的所有商品并更新数量
-//        for (String itemId : cart.getItemMap().keySet()) {
-//
-//            String quantityStr = req.getParameter(itemId);
-//            int quantity = Integer.parseInt(quantityStr);
-//
-//            if (quantity > 0) {
-//                cartService.updateItemQuantity(username, cart, itemId, quantity);
-//            } else {
-//                cartService.removeCartItem(username, cart, itemId);
-//            }
-//            req.getRequestDispatcher(CART_FORM).forward(req, resp);
-//            return;
-//        }
-//        // 更新 session 中的 cart
-//        session.setAttribute("cart", cart);
-//
-//        req.getRequestDispatcher(CART_FORM).forward(req, resp);
     }
 }
