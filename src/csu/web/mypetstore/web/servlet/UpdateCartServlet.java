@@ -32,24 +32,35 @@ public class UpdateCartServlet extends HttpServlet {
         if (cart == null) {
             cart = new Cart();
         }
+        // 遍历购物车中的商品并更新数量
+        Iterator<CartItem> cartItems = cart.getCartItems();
 
-        // 遍历购物车中的所有商品并更新数量
-        for (String itemId : cart.getItemMap().keySet()) {
+        while (cartItems.hasNext()) {
+            CartItem cartItem = cartItems.next();
+            String itemId = cartItem.getItem().getItemId();
 
-            String quantityStr = req.getParameter(itemId);
-            int quantity = Integer.parseInt(quantityStr);
+            try {
+                // 获取请求中每个商品的数量参数
+                String quantityString = req.getParameter(itemId);
 
-            if (quantity > 0) {
-                cartService.updateItemQuantity(username, cart, itemId, quantity);
-            } else {
-                cartService.removeCartItem(username, cart, itemId);
+                if (quantityString != null) {
+                    int quantity = Integer.parseInt(quantityString);
+
+                    // 更新数量或移除商品
+                    cartItem.setQuantity(quantity);
+                    cartService.updateItemQuantity(username, cart, itemId, quantity);
+                    if (quantity < 1) {
+                        cartItems.remove();
+                        cartService.removeCartItem(username, cart, itemId);
+                    }
+                }
+            } catch (NumberFormatException e) {
+                // 捕获异常并忽略无效数量
+                System.err.println("Invalid quantity for item " + itemId + ": " + e.getMessage());
             }
-            req.getRequestDispatcher(CART_FORM).forward(req, resp);
-            return;
         }
-        // 更新 session 中的 cart
-        session.setAttribute("cart", cart);
 
+        // 页面转发
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
     }
 }

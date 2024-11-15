@@ -20,7 +20,6 @@ public class EditAccountServlet extends HttpServlet {
         Account account = (Account) session.getAttribute("loginAccount");
         String password = req.getParameter("password");
         String repeatedPassword = req.getParameter("repeatedPassword");
-
         //登录 且 两次输入密码一致
         if (account != null && password.equals(repeatedPassword)) {
             // 从表单获取参数并设置到 Account 对象中
@@ -39,10 +38,8 @@ public class EditAccountServlet extends HttpServlet {
             account.setFavouriteCategoryId(req.getParameter("favouriteCategoryId"));
             account.setListOption(req.getParameter("listOption") != null);
             account.setBannerOption(req.getParameter("bannerOption") != null);
-
             // 更新账户信息
             accountService.updateAccount(account);
-
             //未更改密码
             if (password == "" && repeatedPassword == "") {
                 // 设置信息并返回编辑页面
