@@ -12,7 +12,7 @@
   <c:forEach var="order" items="${orderList}">
     <tr>
       <td><a href="viewOrder?orderId=${order.orderId}">${order.orderId}</a></td>
-      <td><fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" /></td>
+      <td><fmt:formatDate value="${order.orderDate}" pattern="yyyy/MM/dd" /></td>
       <td><fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00" /></td>
     </tr>
   </c:forEach>
