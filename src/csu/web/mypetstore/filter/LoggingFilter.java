@@ -23,7 +23,8 @@ public class LoggingFilter implements Filter {
 
     private static final Logger logger = Logger.getLogger(LoggingFilter.class.getName());
 
-    private static final String INSERT_LOG = "INSERT INTO user_logs (user_name, action_type, action_details) VALUES (?, ?, ?)";
+    private static final String INSERT_LOG =
+            "INSERT INTO user_logs (user_name, action_type, action_details) VALUES (?, ?, ?)";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

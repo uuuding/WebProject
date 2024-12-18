@@ -9,6 +9,8 @@
 <head>
     <title>MyPetStore</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -42,9 +44,13 @@
     <div id="Search">
         <div id="SearchContent">
             <form action="searchProductsForm" method="post">
-                <input type="text" name="keyword" size="14">
+                <input type="text" name="keyword" size="14" id="keyword">
                 <input type="submit" value="Search">
             </form>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+                </ul>
+            </div>
         </div>
     </div>
 

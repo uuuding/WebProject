@@ -16,5 +16,6 @@
 
 </div>
 
+<script src="js/productAuto.js"></script>
 </body>
 </html>
