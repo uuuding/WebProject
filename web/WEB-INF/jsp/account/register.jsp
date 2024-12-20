@@ -1,9 +1,11 @@
 <%@ include file="../common/top.jsp"%>
 
+<script src="${pageContext.request.contextPath}/js/register.js"></script>
+
 <div id="Catalog">
 
     <form action="register" method="post">
-        <p>Init your account.</p>
+        <p id="msg">Init your account.</p>
         <c:if test="${requestScope.signOnMsg != null}">
             <p> <font color="red">${requestScope.signOnMsg} </font></p>
         </c:if>
@@ -97,7 +99,7 @@
 
         </table>
 
-        <input type="submit" value="ok">
+        <input type="submit" value="ok" id="submit">
 
 
     </form>

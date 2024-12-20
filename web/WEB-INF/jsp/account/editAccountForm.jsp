@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>New password:</td>
-                <td><input type="password" name="password"/></td>
+                <td><input type="password"  name="password"/></td>
             </tr>
             <tr>
                 <td>Repeat password:</td>

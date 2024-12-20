@@ -18,6 +18,10 @@ public class AccountService {
         return this.accountDao.getAccountByUsernameAndPassword(account);
     }
 
+    public boolean checkAccount(String username) {
+        return this.accountDao.isUsernameExists(username);
+    }
+
     public void registerAccount(String username, String password, String email, String firstName, String lastName, String status,
                                 String address1, String address2, String city, String state, String zip,
                                 String country, String phone, String languagePreference, String favouriteCategoryId,

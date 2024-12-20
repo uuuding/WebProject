@@ -49,6 +49,28 @@ public class AccountDaoImpl implements AccountDao {
     };
 
     @Override
+    public boolean isUsernameExists(String username) {
+        String sql = "SELECT COUNT(*) AS usernameCount FROM SIGNON WHERE USERNAME = ?";
+
+        try  {
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt("usernameCount");
+                    return count > 0;  // 如果数量大于0，用户名已经存在
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;  // 默认返回false，表示用户名不存在
+    }
+
+    @Override
     public Account getAccountByUsernameAndPassword(Account account) {
         Account accountResult = null;
         try {

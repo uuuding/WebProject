@@ -18,4 +18,6 @@ public interface AccountDao {
 
     void updateSignon(Account account);
 
+    boolean isUsernameExists(String username);
+
 }
