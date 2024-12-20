@@ -32,7 +32,8 @@
         <input type="submit" value="Save Account Information"/>
 
     </form>
-    <a href="listOrders">My Orders</a>
+    <a href="listOrder">My Orders</a>
+    <a href="logForm">My History</a>
 </div>
 
 <%@ include file="../common/bottom.jsp" %>

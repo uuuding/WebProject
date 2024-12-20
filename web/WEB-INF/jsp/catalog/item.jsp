@@ -13,7 +13,7 @@
             <td>${sessionScope.product.description}</td>
         </tr>
         <tr>
-            <td><b>${sessionScope.item.itemId}</b>></td>
+            <td><b>${sessionScope.item.itemId}</b></td>
         </tr>
         <tr>
             <td><b><font size="4">

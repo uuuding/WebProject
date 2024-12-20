@@ -5,11 +5,11 @@ import csu.web.mypetstore.persistence.DBUtil;
 import csu.web.mypetstore.persistence.OrderDao;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class OrderDaoImpl implements OrderDao {
     private static final String getOrder = "select BILLADDR1 AS billAddress1,BILLADDR2 AS billAddress2,BILLCITY,BILLCOUNTRY,BILLSTATE,BILLTOFIRSTNAME,BILLTOLASTNAME,BILLZIP," +
@@ -141,7 +141,16 @@ public class OrderDaoImpl implements OrderDao {
             PreparedStatement preparedStatement = connection.prepareStatement(insertOrder);
             preparedStatement.setString(1, order.getOrderId() + "");
             preparedStatement.setString(2,order.getUsername());
-            preparedStatement.setString(3,order.getOrderDate().toString());
+
+            // 获得系统时间
+            Date date = new Date();
+            // 将时间格式转换成符合 Timestamp要求的格式
+            String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+            // 把时间转换
+            Timestamp goodsC_date = Timestamp.valueOf(nowTime);
+
+            preparedStatement.setTimestamp(3, goodsC_date);
+            ;
             preparedStatement.setString(4,order.getShipAddress1());
             preparedStatement.setString(5,order.getShipAddress2());
             preparedStatement.setString(6,order.getShipCity());
@@ -191,7 +200,15 @@ public class OrderDaoImpl implements OrderDao {
 
             preparedStatement.setString(1,order.getOrderId()+"");
             preparedStatement.setString(2, order.getOrderId()+"");
-            preparedStatement.setString(3,order.getOrderDate().toString());
+
+            // 获得系统时间
+            Date date = new Date();
+            // 将时间格式转换成符合 Timestamp要求的格式
+            String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+            // 把时间转换
+            Timestamp goodsC_date = Timestamp.valueOf(nowTime);
+
+            preparedStatement.setString(3, String.valueOf(goodsC_date));
             preparedStatement.setString(4,order.getStatus());
 
             int row = preparedStatement.executeUpdate();
