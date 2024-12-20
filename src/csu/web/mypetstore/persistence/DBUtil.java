@@ -7,7 +7,7 @@ public class DBUtil {
     private static String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
     private static String USERNAME = "root";
-    private static String PASSWORD = "123456";
+    private static String PASSWORD = "zzm503503";
 
     private static String CREATE_LOG_TABEL = "CREATE TABLE IF NOT EXISTS user_logs (" +
             "id INT AUTO_INCREMENT PRIMARY KEY, " +
@@ -16,6 +16,7 @@ public class DBUtil {
             "action_details VARCHAR(225), " +
             "request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
             ");";
+
 
     public static Connection getConnection() {
         Connection connection = null;
