@@ -4,9 +4,8 @@ $(document).ready(function () {
     let msg = $('#msg');
 
     $('#username').on('input', function () {
-        var username = $(this).val(); // 使用 .val() 获取输入框的当前值
-        console.log(username); // 打印当前用户名到控制台
-        // 在这里你可以调用检测用户名存在的函数
+        var username = $(this).val(); // 获取输入框的当前值
+        // 检测用户名存在的函数
         checkUsernameExists(username, $(this), submit, msg);
     })}
 )
