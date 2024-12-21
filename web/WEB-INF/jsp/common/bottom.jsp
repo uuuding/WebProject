@@ -17,5 +17,7 @@
 </div>
 
 <script src="js/productAuto.js"></script>
+<script src="js/updateAuto.js"></script>
+
 </body>
 </html>

@@ -34,7 +34,9 @@ public class CartService {
         if (itemMap.containsKey(itemId)) {
             CartItem existingCartItem = itemMap.get(itemId);
             existingCartItem.setQuantity(existingCartItem.getQuantity() + 1);
-            cartDao.updateCartItem(username, existingCartItem);
+            if (username != null) {
+                cartDao.updateCartItem(username, existingCartItem);
+            }
         } else {
             CartItem cartItem = new CartItem();
             cartItem.setItem(item);
@@ -42,7 +44,9 @@ public class CartService {
             cartItem.setInStock(isInStock);
             itemMap.put(itemId, cartItem);
             itemList.add(cartItem);
-            cartDao.insertCartItem(username, cartItem);
+            if (username != null) {
+                cartDao.insertCartItem(username, cartItem);
+            }
         }
 
         updateCartSubTotal(cart);
@@ -55,11 +59,12 @@ public class CartService {
 
         if (removedItem != null) {
             itemList.remove(removedItem);
-            cartDao.deleteCartItem(username, itemId);
+            if (username != null) {
+                cartDao.deleteCartItem(username, itemId);
+            }
             updateCartSubTotal(cart);
             return removedItem.getItem();
-        }
-        else{
+        } else {
             return null;
         }
     }
@@ -68,7 +73,9 @@ public class CartService {
         CartItem cartItem = cart.getItemMap().get(itemId);
         if (cartItem != null) {
             cartItem.setQuantity(quantity);
-            cartDao.updateCartItem(username, cartItem);
+            if (username != null) {
+                cartDao.updateCartItem(username, cartItem);
+            }
             updateCartSubTotal(cart);
         }
     }
@@ -81,7 +88,7 @@ public class CartService {
         cart.setSubTotal(subTotal);
     }
 
-    public void clearCart(String username){
+    public void clearCart(String username) {
         cartDao.clearCart(username);
     }
 }
