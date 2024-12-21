@@ -357,3 +357,19 @@ ul {
     cursor: pointer;
 }
 
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.item-table {
+    width: 375px;
+    position: relative;
+    left: 80px;
+}
+

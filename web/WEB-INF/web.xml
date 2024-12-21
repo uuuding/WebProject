@@ -90,6 +90,10 @@
         <servlet-name>UpdateCartAutoServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartAutoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>showImageInfoServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.showImageInfoServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -176,5 +180,10 @@
         <servlet-name>UpdateCartAutoServlet</servlet-name>
         <url-pattern>/updateAuto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showImageInfoServlet</servlet-name>
+        <url-pattern>/showInfo</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

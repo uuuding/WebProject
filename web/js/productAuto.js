@@ -1,20 +1,20 @@
-$(function (){
+$(function () {
     $('#keyword').on('keyup', function () {
         var keyword = $(this).val();
-        if(keyword !== '' && keyword !== null && keyword.length !==0) {
+        if (keyword !== '' && keyword !== null && keyword.length !== 0) {
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8080/WebProject_Web_exploded/productAuto?keyword=' + keyword,
-                success: function (data){
+                success: function (data) {
                     console.log(data);
                     var productListHTML = '';
-                    for(var i=0;i<data.length;i++) {
+                    for (var i = 0; i < data.length; i++) {
                         productListHTML += '<li class="productAutoItem" data-productId="';
-                        productListHTML +=data[i].productId;
-                        productListHTML +='">';
-                        productListHTML +=data[i].categoryId;
+                        productListHTML += data[i].productId;
+                        productListHTML += '">';
+                        productListHTML += data[i].categoryId;
                         productListHTML += ': ';
-                        productListHTML +=data[i].name;
+                        productListHTML += data[i].name;
                         productListHTML += '</li>';
                     }
                     $('#productAutoList').html(productListHTML);
@@ -24,7 +24,7 @@ $(function (){
                     console.log(errorMsg);
                 }
             })
-        }else {
+        } else {
             $('#productAutoComplete').hide();
         }
     })
@@ -38,11 +38,13 @@ $(function (){
         var productId = $(this).data('productid');
         $('#productAutoComplete').hide();
         $('#keyword').val('');
-        window.location.href = 'http://localhost:8080/WebProject_Web_exploded/productForm?productId='+productId;
+        window.location.href = 'http://localhost:8080/WebProject_Web_exploded/productForm?productId=' + productId;
     })
 
     $('#SearchContent').on('mouseleave', function () {
         $('#productAutoComplete').hide();
         $('#keyword').val('');
     })
+
+
 })
