@@ -373,3 +373,10 @@ ul {
     left: 80px;
 }
 
+.search-res {
+    width: 800px;
+    position: relative;
+    left: 80px;
+    text-align: center;
+}
+
