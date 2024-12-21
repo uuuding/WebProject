@@ -1,18 +1,178 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 响应式设计 -->
     <title>JPetStore Demo</title>
-    <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
+
+    <!-- 内联CSS样式 -->
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: #333;
+            background-color: #f4f4f4; /* 页面背景颜色 */
+        }
+
+        /* 设置所有元素的 box-sizing 属性 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* 主要内容区域 */
+        #Content {
+            margin: 0 auto;
+            padding: 2em;
+            max-width: 1200px;
+            background-color: #ffffff; /* 白色背景 */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            border-radius: 8px;
+        }
+
+        /* 头部标题 */
+        header {
+            text-align: center;
+            background-color: #2c3e50; /* 深色背景 */
+            color: #ecf0f1; /* 浅色字体 */
+            padding: 3em 1em;
+            border-bottom: 3px solid #34495e;
+        }
+
+        header h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        /* 页面标题样式 */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-top: 2em;
+            color: #34495e;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.2em;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            color: #34495e;
+            font-weight: 600;
+            margin-top: 1.2em;
+        }
+
+        /* 段落样式 */
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+            color: #555;
+        }
+
+        /* 链接样式 */
+        a, a:visited, a:link {
+            color: #039;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #69f;
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #34495e; /* 深色背景 */
+            color: #ecf0f1; /* 浅色字体 */
+            font-size: 0.9em;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* 小屏设备上字体大小适当减小 */
+            }
+
+            header h2 {
+                font-size: 2em; /* 小屏设备上标题大小适当缩小 */
+            }
+
+            h1 {
+                font-size: 2.2em; /* 在小屏设备上h1更小一些 */
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            #Content {
+                width: 90%; /* 页面内容区域宽度减小，适应小屏 */
+                padding: 1.5em;
+            }
+
+            footer {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em; /* 更小屏设备下标题进一步缩小 */
+            }
+
+            h2 {
+                font-size: 1.5em;
+                color: black;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            h4 {
+                font-size: 1.4em;
+            }
+
+            #Content {
+                width: 95%;
+                padding: 1em;
+            }
+
+            footer {
+                font-size: 0.7em;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 <div id="Content">
+    <header>
+        <h2>Welcome to JPetStore 6</h2>
+    </header>
 
     <h1>JPetStore Demo</h1>
-
     <p>
         The JPetStore Demo is an online pet store. Like most e-stores, you can browse
         and search the product catalog, choose items to add to a shopping cart, amend
@@ -24,22 +184,7 @@
         application.
     </p>
 
-    <ul>
-        <li><a href="#SigningUp">Signing Up</a></li>
-        <li><a href="#SigningIn">Signing In</a></li>
-        <li><a href="#Catalog">Working with the Product Catalog</a></li>
-        <li><a href="#CatalogBrowsing">Browsing the Catalog</a></li>
-        <li><a href="#CatalogSearching">Searching the Catalog</a></li>
-        <li><a href="#ShoppingCart">Working with the Shopping Cart</a></li>
-        <li><a href="#ShoppingCartAdd">Adding and Removing Items</a></li>
-        <li><a href="#ShoppingCartUpdate">Updating the Quantity of an Item</a></li>
-        <li><a href="#Ordering">Ordering Items</a></li>
-        <li><a href="#OrderReview">Reviewing an Order</a></li>
-        <li><a href="#Issues">Known Issues</a></li>
-    </ul>
-
-    <h2><a id="SigningUp" name="SigningUp"></a>Signing Up</h2>
-
+    <h2>Signing Up</h2>
     <p>
         To sign up, click the Sign-in link at the right end of the banner. Next,
         click the New User link in the resulting page. Among other information, the
@@ -48,119 +193,58 @@
         signing in.
     </p>
 
-    <h2><a id="SigningIn" name="SigningIn"></a>Signing In</h2>
-
+    <h2>Signing In</h2>
     <p>
         You sign in to the application by clicking the Sign-in link at the right end
         of the banner, filling in the user identifier and password, and clicking the
         Submit button.
     </p>
 
-    <p>
-        You will also be redirected to the signin page when you try to place an
-        order and you have not signed in. Once you have signed in, you can return to
-        your shopping session by clicking the shopping cart icon at the right end of
-        the banner.
-    </p>
-
-    <h2><a id="Catalog" name="Catalog"></a>Working with the Product Catalog</h2>
-
+    <h2>Working with the Product Catalog</h2>
     <p>This section describes how to browse and search the product catalog.</p>
 
-    <h4><a id="CatalogBrowsing" name="CatalogBrowsing"></a>Browsing the Catalog</h4>
-
+    <h3>Browsing the Catalog</h3>
     <p>
         The pet store catalog is organized hierarchically as follows: categories,
         products, items.
     </p>
 
+    <h3>Searching the Catalog</h3>
     <p>
-        You list the pets in a category by clicking on the category name in the
-        left column of the main page, or by clicking on the picture representing the
-        category.
-    </p>
-
-    <p>
-        Once you select a category, the pet store will display a list of products
-        within a category. Selecting a product displays a list of items and their
-        prices. Selecting a product item displays a text and visual description of
-        the item and the number of that item in stock.
-    </p>
-
-    <h4><a id="CatalogSearching" name="CatalogSearching"></a>Searching the Catalog</h4>
-
-    <p>
-        You search for products by typing the product name in search field in the
+        You search for products by typing the product name in the search field in the
         middle of the banner.
     </p>
 
-    <h2><a id="ShoppingCart" name="ShoppingCart"></a>Working with the Shopping Cart</h2>
+    <h2>Working with the Shopping Cart</h2>
 
-    <h4><a id="ShoppingCartAdd" name="ShoppingCartAdd"></a>Adding and Removing Items</h4>
-
+    <h4>Adding and Removing Items</h4>
     <p>
         You add an item to your shopping cart by clicking the Add to Cart button to
         the right of an item. This action also displays your shopping cart.
     </p>
 
-    <p>
-        You can remove the item by clicking the Remove button to the left of the
-        item.
-    </p>
-
-    <p>
-        To continue shopping, you select a product category from the list under
-        the banner.
-    </p>
-
-    <h4><a id="ShoppingCartUpdate" name="ShoppingCartUpdate"></a>Updating the Quantity of an Item</h4>
-
+    <h4>Updating the Quantity of an Item</h4>
     <p>
         You adjust the quantity of an item by typing the quantity in the item's
         Quantity field in the shopping cart and clicking the Update button.
     </p>
 
-    <p>
-        If the quantity of items requested is greater than that in stock, the In
-        Stock field in the shopping cart will show that the item is backordered.
-    </p>
-
-    <h4><a id="Ordering" name="Ordering"></a>Ordering Items</h4>
-
+    <h4>Ordering Items</h4>
     <p>
         You order the items in the shopping cart by selecting the Proceed to Checkout
         button. The pet store will display a read-only list of the shopping cart
         contents. To proceed with the checkout, click the Continue button.
     </p>
 
-    <p>
-        If you have not signed in, the application will display the signin page,
-        where you will need to provide your account name and password. Otherwise, the
-        application will display a page requesting payment and shipping information.
-        When you have filled in the required information, you click the Submit
-        button, and the application will display a read-only page containing your
-        billing and shipping address. If you need to change any information,
-        click your browser's Back button and enter the correct information. To
-        complete the order, you click the Continue button.
-    </p>
-
-    <h2><a id="OrderReview" name="OrderReview"></a>Reviewing An Order</h2>
-
+    <h2>Reviewing An Order</h2>
     <p>
         The final screen contains your order information.
     </p>
 
-    <p>
-        The application can be set up to send email confirmation of orders.
-        This option can only be set when the application is deployed. See the
-        installation instructions for further information.
-    </p>
-
-
-    <p><sub>Copyright www.mybatis.org</sub></p>
-
+    <footer>
+        <p><sub>Copyright www.mybatis.org</sub></p>
+    </footer>
 </div>
-
 </body>
 
 </html>
