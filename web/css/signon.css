@@ -40,7 +40,7 @@ label {
 }
 
 /* 输入框样式 */
-#on input[type="text"], #on input[type="password"], #on input[type="submit"] {
+#on input[type="text"], #on input[type="password"], #on input[type="submit"], #on input[type="email"] {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -52,7 +52,7 @@ label {
 }
 
 /* 输入框聚焦样式 */
-#on input[type="text"]:focus, #on input[type="password"]:focus, #on input[type="submit"]:focus {
+#on input[type="text"]:focus, #on input[type="password"]:focus, #on input[type="submit"]:focus,#on input[type="email"]:focus {
     border-color: #007be8;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
