@@ -2,20 +2,16 @@
 #on {
     width: 80%;
     max-width: 600px; /* 限制表单整体宽度 */
-    margin: 50px auto;
+    margin: 0px auto;
     padding: 20px 30px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
-
-/* 验证码错误信息 */
-.captcha-error-message {
-    color: red;
+#on span {
     font-size: 14px;
-    margin-left: 10px; /* 错误信息与验证码图片之间有间距 */
-    vertical-align: middle;
-    display: inline-block; /* 保证错误信息在验证码旁边显示 */
+    color: #555;
+    text-align: center;
 }
 
 /* 提示信息样式 */
@@ -29,20 +25,22 @@
 #on p:first-of-type {
     font-size: 20px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 /* 表单标签 */
 label {
-    display: block;
+    display: inline-block; /* 使label和input在同一行 */
     font-size: 14px;
     margin-bottom: 5px;
     color: #555;
+    width: auto;
+    vertical-align: middle; /* 保证对齐 */
 }
 
 /* 输入框样式 */
-#on input[type="text"],#on input[type="password"],#on input[type="submit"] {
+#on input[type="text"], #on input[type="password"], #on input[type="submit"] {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -54,7 +52,7 @@ label {
 }
 
 /* 输入框聚焦样式 */
-#on input[type="text"]:focus,#on input[type="password"]:focus,#on input[type="submit"]:focus {
+#on input[type="text"]:focus, #on input[type="password"]:focus, #on input[type="submit"]:focus {
     border-color: #007be8;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
@@ -89,24 +87,30 @@ label {
 }
 
 /* 表格样式 */
-table {
+#on table {
     width: 100%;
     border-spacing: 0;
+    background-color: #fff;
     border-collapse: collapse;
     font-size: 14px;
     margin-bottom: 20px;
 }
 
-table tr {
+#on table tr {
     margin-bottom: 10px;
 }
 
-table td {
+#on table td {
     padding: 10px 5px;
     vertical-align: middle;
 }
 
-table td:first-child {
+#on table tr.group-separator td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#on table td:first-child {
     text-align: right;
     width: 35%;
     padding-right: 10px;
@@ -114,15 +118,14 @@ table td:first-child {
     font-weight: bold;
 }
 
-table td:last-child {
+#on table td:last-child {
     width: 65%;
 }
 
-table tr.group-separator td {
-    border-bottom: 1px solid #888;
-    padding-top: 10px;
-    padding-bottom: 10px;
+#on table tr:hover {
+    background-color: white;
 }
+
 
 /* 图片样式 */
 #captchaImage {
@@ -130,7 +133,7 @@ table tr.group-separator td {
     height: 40px;
     cursor: pointer;
     margin-left: 10px;
-    vertical-align: middle;
+    vertical-align: middle; /* 确保验证码图像与输入框对齐 */
 }
 
 /* 链接样式 */
@@ -143,6 +146,30 @@ table tr.group-separator td {
     text-decoration: underline;
 }
 
+/* 输入框和label对齐 */
+#on table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+#on table td:first-child {
+    text-align: right;
+    width: 35%;
+    padding-right: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+#on table td:last-child {
+    width: 65%;
+}
+
+/* 提示信息在验证码下方 */
+#on .captcha-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
 
 /* 响应式设计 */
 @media (max-width: 768px) {
@@ -156,3 +183,4 @@ table tr.group-separator td {
         padding-right: 5px;
     }
 }
+

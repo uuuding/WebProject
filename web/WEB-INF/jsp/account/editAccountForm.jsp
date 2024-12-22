@@ -1,11 +1,12 @@
 <%@ include file="../common/top.jsp" %>
+<link rel="StyleSheet" href="css/signon.css" type="text/css" media="screen"/>
 
 
 <div id="BackLink">
     <a href="mainForm">Return to Main Menu</a>
 </div>
 
-<div id="registration-form">
+<div id="on">
 
     <c:if test="${not empty editMsg}">
         <p style="color:red;">${editMsg}</p>

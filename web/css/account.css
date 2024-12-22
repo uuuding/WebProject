@@ -3,7 +3,7 @@
 .registration-form {
     width: 80%;
     max-width: 600px; /* 限制表单整体宽度 */
-    margin: 50px auto;
+    margin: 0px auto;
     padding: 20px 30px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -11,12 +11,33 @@
 }
 
 /* Title */
-#msg {
+#m {
     font-size: 22px;
     text-align: center;
     margin-bottom: 30px;
     color: #333;
     font-weight: bold;
+}
+
+/* Title */
+#msg {
+
+    font-size: 16px; /* 调整字体大小 */
+    line-height: 1.5; /* 设置行高，增加可读性 */
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: normal; /* 如果需要可以设置为 normal，去除加粗 */
+    word-wrap: break-word; /* 防止长单词溢出 */
+}
+
+#msg1 {
+
+    font-size: 16px; /* 调整字体大小 */
+    line-height: 1.5; /* 设置行高，增加可读性 */
+    text-align: center;
+    color: #333;
+    font-weight: normal; /* 如果需要可以设置为 normal，去除加粗 */
 }
 
 /* Labels */
@@ -87,6 +108,10 @@ table {
     font-size: 14px;
 }
 
+#on table tr:hover {
+    background-color: white;
+}
+
 table tr {
     margin-bottom: 10px;
 }
@@ -106,16 +131,20 @@ table td:first-child {
 }
 
 /* 输入框样式，调整为剩余部分的宽度 */
-table td:last-child {
-    width: 60%; /* 输入框占表单宽度的 60% */
+table td:last-child{
+    width: 15%; /* 输入框占表单宽度的 60% */
 }
 
 table tr:nth-child(even) {
     background-color: #f4f4f4;
 }
 
+table tr:nth-child(even):hover {
+    background-color: #f4f4f4;
+}
+
 table tr:hover {
-    background-color: #eaeaea;
+    background-color: white;
 }
 
 table tr.group-separator td {
