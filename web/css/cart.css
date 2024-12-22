@@ -1,3 +1,6 @@
+h2{
+    margin-top:0px;
+}
 /* Header Section */
 #BackLink {
     margin: 20px 0;
@@ -30,7 +33,7 @@ h2 {
 /* Table Styles */
 table {
     width: 100%;
-    border-collapse: separate;
+    border-collapse: collapse;
     margin-bottom: 30px;
     font-size: 16px;
 }
@@ -52,6 +55,7 @@ table th {
 .item-info {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .item-info .item-details {

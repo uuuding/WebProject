@@ -68,7 +68,7 @@ $(function () {
 
     // 删除商品功能
     $('table').on('click', '#remove-item', function () {
-        const itemId = $(this).data('item-id'); // 获取商品 ID
+        var itemId = $(this).data('item-id'); // 获取商品 ID
         $(`#rank-${itemId}`).animate({
             opacity: 0,
             paddingLeft: '+=180px'
