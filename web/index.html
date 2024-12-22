@@ -2,17 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加响应式设计 -->
     <title>MyPetStore</title>
-    <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
+
+    <!-- 内联CSS样式 -->
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Helvetica', sans-serif; /* 现代化字体 */
+            font-size: 16px;
+            color: #333;
+            background-color: #f4f4f4; /* 背景色更柔和 */
+        }
+
+        /* 设置所有元素的 box-sizing 属性 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* 主要内容区 */
+        #Content {
+            margin: 0 auto;
+            padding: 2em;
+            max-width: 1200px; /* 限制最大宽度 */
+            background-color: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* 头部标题 */
+        header {
+            text-align: center;
+            background-color: #2c3e50; /* 背景色深色调 */
+            color: #ecf0f1; /* 字体色更柔和 */
+            padding: 3em 1em;
+            border-bottom: 3px solid #34495e; /* 底部边框 */
+        }
+
+        header h2 {
+            font-size: 2.5em; /* 更大字体 */
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        header a.Button {
+            padding: 12px 24px;
+            background-color: #27ae60; /* 按钮背景色 */
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* 增加交互效果 */
+        }
+
+        header a.Button:hover {
+            background-color: #2ecc71; /* 悬停时变亮 */
+            transform: scale(1.05); /* 增加放大效果 */
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #34495e;
+            color: #ecf0f1;
+            font-size: 0.9em;
+        }
+
+        /* 链接样式 */
+        a, a:visited, a:link {
+            color: #039;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #69f;
+        }
+
+        /* 页面响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* 小屏设备上字体大小适当减小 */
+            }
+
+            header h2 {
+                font-size: 2em; /* 小屏设备上标题大小适当缩小 */
+            }
+
+            header a.Button {
+                font-size: 1.1em;
+                padding: 10px 20px;
+            }
+
+            #Content {
+                width: 90%; /* 页面内容区域宽度减小，适应小屏 */
+                padding: 1.5em;
+            }
+
+            footer {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h2 {
+                font-size: 1.5em; /* 更小屏设备下标题进一步缩小 */
+            }
+
+            header a.Button {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+
+            #Content {
+                width: 95%;
+                padding: 1em;
+            }
+
+            footer {
+                font-size: 0.7em;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="Content">
-    <h2>Welcome to JPetStore 6</h2>
+    <header>
+        <h2>Welcome to JPetStore 6</h2>
+        <p><a href="mainForm" class="Button">Enter the Store</a></p>
+    </header>
 
-    <p><a href="mainForm">Enter the Store</a></p>
-
-    <p><sub>Copyright Central South University.</sub></p>
-
+    <footer>
+        <p><sub>Copyright Central South University.</sub></p>
+    </footer>
 </div>
 </body>
 </html>

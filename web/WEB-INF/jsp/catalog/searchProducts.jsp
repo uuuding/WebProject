@@ -5,7 +5,7 @@
 </div>
 
 <div id="Catalog">
-    <table>
+    <table class = "search-res">
         <tr>
             <th>&nbsp;</th>
             <th>Product ID</th>
@@ -32,6 +32,7 @@
             <td></td>
         </tr>
     </table>
+    <div id="tooltip" class="tooltip"></div>
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

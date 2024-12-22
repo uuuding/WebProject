@@ -1,5 +1,6 @@
 package csu.web.mypetstore.web.servlet;
 
+import com.alibaba.fastjson.JSON;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.CatalogService;
 
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import com.alibaba.fastjson.JSON;
+
 public class ProductAutoCompleteServlet extends HttpServlet {
 
     @Override

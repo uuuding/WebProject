@@ -1,0 +1,152 @@
+/* Header Section */
+#BackLink {
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+#BackLink a {
+    color: #007be8;
+    text-decoration: none;
+}
+
+#BackLink a:hover {
+    text-decoration: underline;
+}
+
+/* Cart Section */
+#Cart {
+    margin: 20px;
+    width:95%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+table thead {
+    background-color: #f1f1f1;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+table th {
+    background-color: #f1f1f1;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+}
+
+.item-info .item-details {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.item-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Quantity Controls */
+button.quantity-decrease, button.quantity-increase {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+}
+
+button.quantity-decrease:hover, button.quantity-increase:hover {
+    background-color: #007be8;
+    color: white;
+}
+
+input[type="text"][class="item-quantity"] {
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+
+/* Select All & Item Select */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+#select-all {
+    margin-right: 10px;
+}
+
+/* Action (Remove Button) */
+#remove-item {
+    padding: .5ex 1ex;
+    color: #fff;
+    background-color: #6657; /* 改为蓝色 */
+    text-decoration: none;
+    font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.6ex;
+    border: none;
+    border-radius: 5px; /* 圆角边框 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    cursor: pointer; /* 鼠标悬停时显示为点击手势 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* 添加过渡效果 */
+}
+
+#remove-item:hover {
+    background-color: red;
+    transform: translateY(-2px);
+}
+
+/* Cart Summary */
+#cart-summary {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+#cart-summary .Button {
+    background-color: #007be8;
+    font-size:16px;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#cart-summary .Button:hover {
+    background-color: #005bb5;
+}
+
+/* Empty Cart Message */
+#empty-cart-message {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
+

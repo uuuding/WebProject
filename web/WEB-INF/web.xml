@@ -8,7 +8,6 @@
         <servlet-name>MainFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>CategoryFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.CategoryFormServlet</servlet-class>
@@ -87,9 +86,14 @@
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
     </servlet>
-
-
-
+    <servlet>
+        <servlet-name>UpdateCartAutoServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartAutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showImageInfoServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.showImageInfoServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -170,7 +174,16 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
-        <url-pattern>/ProductAuto</url-pattern>
+        <url-pattern>/productAuto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartAutoServlet</servlet-name>
+        <url-pattern>/updateAuto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showImageInfoServlet</servlet-name>
+        <url-pattern>/showInfo</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

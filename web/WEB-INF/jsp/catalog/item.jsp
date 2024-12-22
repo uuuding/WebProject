@@ -8,7 +8,7 @@
 
 <div id="Catalog">
 
-    <table>
+    <table class="item-table">
         <tr>
             <td>${sessionScope.product.description}</td>
         </tr>
@@ -50,6 +50,8 @@
             </td>
         </tr>
     </table>
+
+    <div id="tooltip" class="tooltip"></div>
 
 </div>
 
