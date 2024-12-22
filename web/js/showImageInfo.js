@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         // AJAX 请求后端，获取提示信息
         $.ajax({
-            url: 'http://localhost:8080/WebProject_Web_exploded/showInfo?id=' + imageId,// 后端接口地址
+            url: 'showInfo?id=' + imageId,// 后端接口地址
             method: 'GET',
             data: { id: imageId },
             dataType: 'json',

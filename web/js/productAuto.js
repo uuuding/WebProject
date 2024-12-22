@@ -4,7 +4,7 @@ $(function () {
         if (keyword !== '' && keyword !== null && keyword.length !== 0) {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/WebProject_Web_exploded/productAuto?keyword=' + keyword,
+                url: 'productAuto?keyword=' + keyword,
                 success: function (data) {
                     console.log(data);
                     var productListHTML = '';
