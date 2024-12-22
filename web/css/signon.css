@@ -1,0 +1,158 @@
+/* 统一表单容器样式 */
+#on {
+    width: 80%;
+    max-width: 600px; /* 限制表单整体宽度 */
+    margin: 50px auto;
+    padding: 20px 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 验证码错误信息 */
+.captcha-error-message {
+    color: red;
+    font-size: 14px;
+    margin-left: 10px; /* 错误信息与验证码图片之间有间距 */
+    vertical-align: middle;
+    display: inline-block; /* 保证错误信息在验证码旁边显示 */
+}
+
+/* 提示信息样式 */
+#on p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+/* 表单标题 */
+#on p:first-of-type {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 表单标签 */
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* 输入框样式 */
+#on input[type="text"],#on input[type="password"],#on input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 输入框聚焦样式 */
+#on input[type="text"]:focus,#on input[type="password"]:focus,#on input[type="submit"]:focus {
+    border-color: #007be8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* 提交按钮样式 */
+#on input[type="submit"] {
+    background-color: #007BFF; /* 主体蓝色 */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 提交按钮悬停样式 */
+#on input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* 悬停时轻微上移 */
+}
+
+/* 提交按钮禁用样式 */
+#on input[type="submit"]:disabled {
+    background-color: #a9d2f3;
+    cursor: not-allowed;
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+table tr {
+    margin-bottom: 10px;
+}
+
+table td {
+    padding: 10px 5px;
+    vertical-align: middle;
+}
+
+table td:first-child {
+    text-align: right;
+    width: 35%;
+    padding-right: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+table td:last-child {
+    width: 65%;
+}
+
+table tr.group-separator td {
+    border-bottom: 1px solid #888;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* 图片样式 */
+#captchaImage {
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* 链接样式 */
+#on a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#on a:hover {
+    text-decoration: underline;
+}
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #Catalog {
+        width: 90%;
+        padding: 15px;
+    }
+
+    table td:first-child {
+        text-align: left;
+        padding-right: 5px;
+    }
+}

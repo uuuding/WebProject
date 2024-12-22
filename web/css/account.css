@@ -1,0 +1,140 @@
+/* 限制表单整体宽度 */
+
+.registration-form {
+    width: 80%;
+    max-width: 600px; /* 限制表单整体宽度 */
+    margin: 50px auto;
+    padding: 20px 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title */
+#msg {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input Fields */
+#registration-form input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Focus */
+#registration-form input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
+    border-color: #007be8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit Button */
+#registration-form #submit {
+    background-color: #007BFF !important; /* 主体蓝色 */
+    color: white; /* 字体颜色白色 */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px; /* 圆角设计 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block; /* 居中显示 */
+    width: 50%; /* 按钮宽度为表单宽度的 50% */
+    margin: 20px auto 0 auto; /* 居中对齐并增加上间距 */
+    text-transform: uppercase; /* 全大写文字 */
+    letter-spacing: 1px; /* 增加字母间距 */
+    text-align: center;
+}
+
+/* Submit Button Hover */
+#registration-form #submit:hover {
+    background-color: #0056b3 !important; /* 悬停时更深的蓝色 */
+    transform: translateY(-2px); /* 悬停动画，轻微上移 */
+}
+
+/* Submit Button Disabled */
+#registration-form #submit:disabled {
+    background-color: #a9d2f3 !important; /* 禁用状态浅蓝色 */
+    cursor: not-allowed; /* 禁用状态鼠标不可点击 */
+    transform: none; /* 禁用时去掉动画效果 */
+}
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table tr {
+    margin-bottom: 10px;
+}
+
+table td {
+    padding: 10px 5px;
+    vertical-align: middle;
+}
+
+/* 标签的宽度和位置调整 */
+table td:first-child {
+    text-align: left; /* 标签左对齐 */
+    width: 40%; /* 设置标签占表单宽度的 40% */
+    padding-right: 10px; /* 增加标签和输入框的间距 */
+    color: #555;
+    font-weight: bold;
+}
+
+/* 输入框样式，调整为剩余部分的宽度 */
+table td:last-child {
+    width: 60%; /* 输入框占表单宽度的 60% */
+}
+
+table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+table tr:hover {
+    background-color: #eaeaea;
+}
+
+table tr.group-separator td {
+    border-bottom: 1px solid #ddd;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #Catalog {
+        width: 90%;
+        padding: 15px;
+    }
+
+    table td:first-child {
+        text-align: left;
+        padding-right: 5px;
+    }
+}
+

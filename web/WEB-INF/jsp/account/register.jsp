@@ -1,8 +1,9 @@
 <%@ include file="../common/top.jsp"%>
 
 <script src="${pageContext.request.contextPath}/js/register.js"></script>
+<link rel="StyleSheet" href="css/account.css" type="text/css" media="screen"/>
 
-<div id="Catalog">
+<div  class="registration-form" id="registration-form">
 
     <form action="register" method="post">
         <p id="msg">Init your account.</p>
@@ -23,6 +24,11 @@
                 <td><label for="email">Email:</label></td>
                 <td><input type="email" id="email" name="email" required></td>
             </tr>
+
+            <tr class="group-separator">
+                <td colspan="2"></td>
+            </tr>
+
             <tr>
                 <td><label for="firstName">First Name:</label></td>
                 <td><input type="text" id="firstName" name="firstName" required></td>
@@ -63,7 +69,12 @@
                 <td><label for="phone">Phone:</label></td>
                 <td><input type="tel" id="phone" name="phone"></td>
             </tr>
-                <tr>
+
+            <tr class="group-separator">
+                <td colspan="2"></td>
+            </tr>
+
+            <tr>
                     <td>Language Preference:</td>
                     <td>
                         <select name="languagePreference">

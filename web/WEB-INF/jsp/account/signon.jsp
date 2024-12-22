@@ -1,12 +1,9 @@
 <%@ include file="../common/top.jsp"%>
+<link rel="StyleSheet" href="css/signon.css" type="text/css" media="screen"/>
 
-
-<div id="Catalog">
+<div id="on">
 
    <form action="signOn" method="post">
-      <c:if test="${requestScope.signOnMsg != null}">
-         <p> <font color="red">${requestScope.signOnMsg} </font></p>
-      </c:if>
 
       <p>Please enter your username and password.</p>
       <table>
@@ -18,11 +15,19 @@
             <td><label for="password">Password:</label></td>
             <td><input type="password" name="password" id="password" required></td>
          </tr>
+
+         <tr class="group-separator">
+            <td colspan="2"></td>
+         </tr>
+
          <tr>
             <td><label for="captcha">Captcha:</label></td>
             <td>
                <input type="text" name="captcha" id="captcha" required style="width: 100px;">
                <img src="captcha" alt="Captcha Image" id="captchaImage" style="cursor: pointer; margin-left: 10px; vertical-align: middle;" onclick="refreshCaptcha()" />
+               <c:if test="${requestScope.signOnMsg != null}">
+                  <span class="captcha-error-message">${requestScope.signOnMsg}</span>
+               </c:if>
             </td>
          </tr>
       </table>

@@ -1,10 +1,11 @@
 <%@ include file="../common/top.jsp" %>
 
+
 <div id="BackLink">
     <a href="mainForm">Return to Main Menu</a>
 </div>
 
-<div id="Catalog">
+<div id="registration-form">
 
     <c:if test="${not empty editMsg}">
         <p style="color:red;">${editMsg}</p>
