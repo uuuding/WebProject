@@ -53,7 +53,6 @@ public class SignOnServlet extends HttpServlet {
 
                 session.setAttribute("loginAccount", loginAccount);
                 session.setAttribute("userName", username);
-                System.out.println(loginAccount.getBannerName());
 
 
                 if (loginAccount.isListOption()) {

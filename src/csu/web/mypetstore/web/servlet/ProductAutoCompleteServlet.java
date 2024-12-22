@@ -1,4 +1,4 @@
-/*package csu.web.mypetstore.web.servlet;
+package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.CatalogService;
@@ -27,4 +27,4 @@ public class ProductAutoCompleteServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.println(result);
     }
-}*/
+}
