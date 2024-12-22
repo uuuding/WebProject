@@ -65,7 +65,7 @@
         <img src="images/separator.gif"/>
         <a href="categoryForm?categoryId=BIRDS"><img src="images/sm_birds.gif"/></a>
         <img src="images/separator.gif"/>
-    </div>
+    </div>c
 
 </div>
 

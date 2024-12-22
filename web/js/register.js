@@ -13,8 +13,7 @@ $(document).ready(function () {
 
 function checkUsernameExists(username, input, submit, msg){
 
-    $.ajax(
-        {
+    $.ajax({
             type:'get',
             url:'Check',
             data:{username:username},

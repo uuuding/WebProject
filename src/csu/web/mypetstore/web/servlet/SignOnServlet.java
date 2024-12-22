@@ -47,14 +47,14 @@ public class SignOnServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username, password);
             if (loginAccount == null) {
                 this.msg = "用户名或密码错误";
-                System.out.println("11111");
                 req.setAttribute("signOnMsg", this.msg);
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
             } else {
-                //loginAccount.setPassword(null);
 
                 session.setAttribute("loginAccount", loginAccount);
                 session.setAttribute("userName", username);
+                System.out.println(loginAccount.getBannerName());
+
 
                 if (loginAccount.isListOption()) {
                     CatalogService catalogService = new CatalogService();
