@@ -52,7 +52,34 @@
             <td style="padding: 0.75em 0; font-weight: bold;">First name:</td>
             <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billToFirstName}" /></td>
         </tr>
-        <!-- Add the remaining billing fields here as before -->
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Last name:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billToLastName}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Address 1:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billAddress1}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Address 2:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billAddress2}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">City:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billCity}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">State:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billState}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Zip:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billZip}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Country:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billCountry}" /></td>
+        </tr>
 
         <!-- Shipping Address -->
         <tr>
@@ -60,8 +87,38 @@
                 Shipping Address
             </th>
         </tr>
-        <!-- Add the shipping fields here as before -->
-
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">First name:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipToFirstName}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Last name:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipToLastName}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Address 1:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipAddress1}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Address 2:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipAddress2}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">City:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipCity}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">State:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipState}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Zip:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipZip}" /></td>
+        </tr>
+        <tr>
+            <td style="padding: 0.75em 0; font-weight: bold;">Country:</td>
+            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipCountry}" /></td>
+        </tr>
         <tr>
             <td style="padding: 0.75em 0; font-weight: bold;">Courier:</td>
             <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.courier}" /></td>
@@ -69,6 +126,7 @@
         <tr>
             <td colspan="2" style="font-weight: bold; padding: 1.25em 0; text-align: center;">Status: <c:out value="${sessionScope.order.status}" /></td>
         </tr>
+
 
         <!-- Line Items Table -->
         <tr>
