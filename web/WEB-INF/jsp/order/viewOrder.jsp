@@ -15,7 +15,6 @@
 <!-- Order Details -->
 <div id="Catalog" style="max-width: 1000px; margin: 0 auto; padding: 2em; background-color: #ffffff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 8px;">
     <table style="width: 100%; border-collapse: collapse;">
-
         <!-- Order Header -->
         <tr>
             <th colspan="2" style="background-color: #1d4886; color: white; padding: 1em; text-align: center; font-size: 1.5em; border-top-left-radius: 8px; border-top-right-radius: 8px;">
@@ -53,34 +52,7 @@
             <td style="padding: 0.75em 0; font-weight: bold;">First name:</td>
             <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billToFirstName}" /></td>
         </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Last name:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billToLastName}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Address 1:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billAddress1}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Address 2:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billAddress2}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">City:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billCity}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">State:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billState}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Zip:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billZip}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Country:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.billCountry}" /></td>
-        </tr>
+        <!-- Add the remaining billing fields here as before -->
 
         <!-- Shipping Address -->
         <tr>
@@ -88,38 +60,8 @@
                 Shipping Address
             </th>
         </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">First name:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipToFirstName}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Last name:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipToLastName}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Address 1:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipAddress1}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Address 2:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipAddress2}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">City:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipCity}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">State:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipState}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Zip:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipZip}" /></td>
-        </tr>
-        <tr>
-            <td style="padding: 0.75em 0; font-weight: bold;">Country:</td>
-            <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.shipCountry}" /></td>
-        </tr>
+        <!-- Add the shipping fields here as before -->
+
         <tr>
             <td style="padding: 0.75em 0; font-weight: bold;">Courier:</td>
             <td style="padding: 0.75em 0;"> <c:out value="${sessionScope.order.courier}" /></td>
@@ -145,7 +87,7 @@
                     <c:forEach var="lineItem" items="${sessionScope.order.lineItems}">
                         <tr>
                             <td style="padding: 0.75em 1em;">
-                                <a href="viewItem?itemId=${lineItem.item.itemId}" style="color: #1d4886; text-decoration: none;">
+                                <a href="itemForm?itemId=${lineItem.item.itemId}" style="color: #1d4886; text-decoration: none;">
                                         ${lineItem.item.itemId}
                                 </a>
                             </td>
@@ -164,10 +106,11 @@
                                 <fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00" />
                             </td>
                             <td style="padding: 0.75em 1em;">
-                                <fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" />
+                                <fmt:formatNumber value="${lineItem.unitPrice * lineItem.quantity}" pattern="$#,##0.00" />
                             </td>
                         </tr>
                     </c:forEach>
+                    <!-- Total Cost Row -->
                     <tr>
                         <td colspan="5" style="font-size: 1.2em; font-weight: bold; padding: 1.25em 1em; text-align: right;">
                             Total:

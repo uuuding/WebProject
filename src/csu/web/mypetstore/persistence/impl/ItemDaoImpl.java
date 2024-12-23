@@ -4,10 +4,7 @@ import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.persistence.DBUtil;
 import csu.web.mypetstore.persistence.ItemDao;
-import csu.web.mypetstore.web.servlet.ProductFormServlet;
-import org.ietf.jgss.GSSContext;
 
-import javax.print.attribute.standard.MediaSize;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,11 +68,41 @@ public class ItemDaoImpl implements ItemDao {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_INVENTORY_QUANTITY);
+
+            // 获取第一个 itemId 作为查询条件
             String itemId = param.keySet().iterator().next();
-            Integer increment = (Integer) param.get(itemId);
-            preparedStatement.setInt(1, increment.intValue());
-            preparedStatement.setString(2, itemId);
-            preparedStatement.executeUpdate();
+            Object incrementObj = param.get(itemId);
+
+            // 检查增量值是否是 Integer 类型
+            if (incrementObj instanceof Integer) {
+                Integer increment = (Integer) incrementObj;
+
+                // 设置增量和 itemId 到 SQL 语句
+                preparedStatement.setInt(1, increment.intValue());
+                preparedStatement.setString(2, itemId);
+
+                // 执行更新
+                preparedStatement.executeUpdate();
+            } else {
+                // 如果增量值不是 Integer 类型，尝试将其转换为整数
+                try {
+                    // 如果增量值是字符串并且可以转换为整数
+                    Integer increment = Integer.parseInt(incrementObj.toString());
+
+                    // 设置增量和 itemId 到 SQL 语句
+                    preparedStatement.setInt(1, increment.intValue());
+                    preparedStatement.setString(2, itemId);
+
+                    // 执行更新
+                    preparedStatement.executeUpdate();
+                } catch (NumberFormatException e) {
+                    // 如果不能转换为整数，打印错误信息
+                    System.err.println("Invalid increment value: " + incrementObj);
+                    // 可以根据需求抛出异常，或者记录日志
+                }
+            }
+
+            // 关闭资源
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (Exception e) {
@@ -91,13 +118,13 @@ public class ItemDaoImpl implements ItemDao {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_INVENTORY_QUANTITY);
             preparedStatement.setString(1, itemId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 result = resultSet.getInt("value");
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
@@ -111,7 +138,7 @@ public class ItemDaoImpl implements ItemDao {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_ITEM_LIST_BY_PRODUCT);
             preparedStatement.setString(1, productId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Item item = new Item();
                 item.setItemId(resultSet.getString("ITEMID"));
                 item.setListPrice(resultSet.getBigDecimal("LISTPRICE"));
@@ -148,7 +175,7 @@ public class ItemDaoImpl implements ItemDao {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_ITEM);
             preparedStatement.setString(1, itemId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 item.setItemId(resultSet.getString("ITEMID"));
                 item.setListPrice(resultSet.getBigDecimal("LISTPRICE"));
                 item.setUnitCost(resultSet.getBigDecimal("UNITCOST"));
@@ -168,7 +195,7 @@ public class ItemDaoImpl implements ItemDao {
                 product.setCategoryId(resultSet.getString("product.categoryId"));
                 item.setProduct(product);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return item;
