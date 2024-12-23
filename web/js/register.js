@@ -40,7 +40,4 @@ function checkUsernameExists(username, input, submit, msg){
 
 )
 
-
-
-
 }

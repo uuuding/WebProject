@@ -105,6 +105,27 @@ $(function () {
         updateSelectedCount(); // 更新已选商品计数
     });
 
+    //提交所选物品订单
+    $('#proceed-checkout').on('click', function (event) {
+        event.preventDefault();
+
+        // Get selected item IDs
+        var selectedItems = $('.item-select:checked').map(function () {
+            return $(this).data('item-id');
+        }).get();
+
+        if (selectedItems.length === 0) {
+            alert('Please select at least one item to proceed.');
+            return;
+        }
+
+        // Set selected item IDs to the hidden input field
+        $('#selected-items').val(selectedItems.join(','));
+
+        // Submit the form
+        $('#cart-form').submit();
+    });
+
     // 更新购物车状态
     function updateCart() {
         var totalItems = $('.item-id').length; // 获取购物车中商品行数
