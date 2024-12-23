@@ -150,6 +150,7 @@ label {
 #on table td {
     padding: 10px;
     vertical-align: middle;
+    text-align: left;
 }
 
 #on table td:first-child {
