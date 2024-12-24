@@ -1,5 +1,6 @@
 <%@ include file="../common/top.jsp" %>
 <link rel="StyleSheet" href="css/signon.css" type="text/css" media="screen"/>
+<script src="${pageContext.request.contextPath}/js/edit.js"></script>
 
 
 <div id="BackLink">
@@ -9,7 +10,7 @@
 <div id="on">
 
     <c:if test="${not empty editMsg}">
-        <p style="color:red;">${editMsg}</p>
+        <p style="color:red;" id="msg">${editMsg}</p>
     </c:if>
 
     <h3>User Information</h3>
@@ -22,11 +23,11 @@
             </tr>
             <tr>
                 <td>New password:</td>
-                <td><input type="password"  name="password"/></td>
+                <td><input type="password"  name="password" id="password"/></td>
             </tr>
             <tr>
                 <td>Repeat password:</td>
-                <td><input type="password" name="repeatedPassword"/></td>
+                <td><input type="password" name="repeatedPassword" id="repeat"/></td>
             </tr>
         </table>
         <%@ include file="includeAccountFields.jsp" %>
