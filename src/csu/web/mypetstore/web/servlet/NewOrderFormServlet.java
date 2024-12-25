@@ -44,7 +44,7 @@ public class NewOrderFormServlet extends HttpServlet {
         // 获取选中的商品 ID
         String selectedItemsParam = req.getParameter("selectedItems");
         if (selectedItemsParam == null || selectedItemsParam.isEmpty()) {
-            resp.sendRedirect("cartView.jsp?error=NoItemsSelected");
+            resp.sendRedirect("cartForm");
             return;
         }
 
