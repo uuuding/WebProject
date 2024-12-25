@@ -27,7 +27,7 @@
                 </thead>
                 <tbody id="cart-items">
                 <tr id="empty-cart-message" style="display:none;">
-                    <td colspan="6"><b>Your cart is empty.</b></td>
+                    <td colspan="7"><b>Your cart is empty.</b></td>
                 </tr>
 
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">

@@ -13,7 +13,8 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        session.setAttribute("loginAccount", null);
+        session.removeAttribute("loginAccount");
+        session.removeAttribute("cart");
         resp.sendRedirect("mainForm");
     }
 }

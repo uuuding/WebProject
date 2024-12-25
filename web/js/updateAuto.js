@@ -67,7 +67,7 @@ $(function () {
     });
 
     // 删除商品功能
-    $('table').on('click', '#remove-item', function () {
+    $('table').off('click','#remove-item').on('click', '#remove-item', function () {
         var itemId = $(this).data('item-id'); // 获取商品 ID
         $(`#rank-${itemId}`).animate({
             opacity: 0,
@@ -83,7 +83,7 @@ $(function () {
             url: 'updateAuto',
             data: {itemId, quantity: 0}, // 设置数量为 0 表示删除
             error: function () {
-                alert('删除商品时发生错误，请稍后重试。');
+                // alert('删除商品时发生错误，请稍后重试。');
             }
         });
     });
