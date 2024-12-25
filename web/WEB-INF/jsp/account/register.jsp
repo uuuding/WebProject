@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td><label for="status">Status:</label></td>
-                <td><input type="text" id="status" name="status"></td>
+                <td><input type="text" id="status" name="status" maxlength="2"></td>
                 <td></td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
             </tr>
             <tr>
                 <td><label for="state">State:</label></td>
-                <td><input type="text" id="state" name="state" required maxlength="2"></td>
+                <td><input type="text" id="state" name="state" required ></td>
                 <td></td>
             </tr>
             <tr>
