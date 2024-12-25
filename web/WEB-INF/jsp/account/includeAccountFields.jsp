@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <td>State:</td>
-        <td><input type="text" size="4" name="state" value="${loginAccount.state}" /></td>
+        <td><input type="text" size="4" maxlength="2" name="state" value="${loginAccount.state}" /></td>
     </tr>
     <tr>
         <td>Zip:</td>
