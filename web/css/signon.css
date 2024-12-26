@@ -2,7 +2,7 @@
 #on {
     width: 80%;
     max-width: 600px; /* 限制表单整体宽度 */
-    margin: 0px auto;
+    margin: 0 auto;
     padding: 20px 30px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@ label {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -72,6 +72,7 @@ label {
     letter-spacing: 1px;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 15px;
 }
 
 /* 提交按钮悬停样式 */

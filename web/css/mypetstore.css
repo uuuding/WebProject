@@ -459,3 +459,16 @@ ul {
     left: 80px;
     text-align: center;
 }
+
+i {
+    margin-right: 30px;
+}
+
+.order-table {
+    margin: 0;
+    padding: 0;
+}
+.order-title {
+    margin: 0 auto 10px auto;
+    padding: 0;
+}

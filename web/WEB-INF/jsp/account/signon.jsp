@@ -11,11 +11,11 @@
       </c:if>
       <table>
          <tr>
-            <td><label for="username">Username:</label></td>
+            <td><i class="fa-solid fa-user"></i><label for="username">Username:</label></td>
             <td><input type="text" name="username" id="username" required></td>
          </tr>
          <tr>
-            <td><label for="password">Password:</label></td>
+            <td><i class="fa-solid fa-key"></i><label for="password">Password:</label></td>
             <td><input type="password" name="password" id="password" required></td>
          </tr>
 

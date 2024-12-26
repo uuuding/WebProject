@@ -1,8 +1,8 @@
 <%@ include file="../common/top.jsp"%>
 
-<h2>My Orders</h2>
+<h2 class="order-title">My Orders</h2>
 
-<table>
+<table class="order-table">
   <tr>
     <th>Order ID</th>
     <th>Date</th>

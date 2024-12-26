@@ -10,7 +10,7 @@
     <title>MyPetStore</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/52ce782f6e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
